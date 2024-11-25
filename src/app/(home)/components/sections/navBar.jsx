@@ -42,9 +42,9 @@ export default function Navbar() {
 
         {/* Mobile Menu Buttons  */}
         <div className="lg:hidden flex items-center gap-8">
-          <Link href={'/contact'} className="bg-green-800 hover:bg-green-600 text-white lg:flex px-6 py-3 font-bold">
+          {/* <Link href={'/contact'} className="bg-green-800 hover:bg-green-600 text-white lg:flex px-6 py-3 font-bold">
             {navbarData.connectButtonText}
-          </Link>
+          </Link> */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-800 focus:outline-none"

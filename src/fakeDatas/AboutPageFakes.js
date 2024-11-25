@@ -30,7 +30,7 @@ const AboutPageFakes = {
             src: "/logo.png", 
         }
     ],
-    foundersData: {
+    teamData: {
         title: "Meet Our Team",
         founders: [
           {
@@ -44,33 +44,33 @@ const AboutPageFakes = {
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731270421/jacques.jpg",
           },
           {
-            name: "Uwase Lilian",
-            position: "Finance",
-            image: "https://media.licdn.com/dms/image/D4E03AQEOWYWX-_WX_Q/profile-displayphoto-shrink_200_200/0/1686306845073?e=2147483647&v=beta&t=dEGAWexroP3JXk8w8h0d4GG3Hv5dkBYp0_ueFFA2HxY",
-          },
-          {
             name: "Mugwaneza Joseph",
             position: "HR",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266274/joe.jpg",
           },
           {
-            name: "Tuyisenge Josian",
-            position: "Finance & Operation",
+            name: "Tuyisenge Josiane",
+            position: "Finance Manager",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266280/josiane.jpg",
           },
           {
+            name: "Uwase Lilian",
+            position: "Operations Manager & Assistant HR",
+            image: "https://media.licdn.com/dms/image/D4E03AQEOWYWX-_WX_Q/profile-displayphoto-shrink_200_200/0/1686306845073?e=2147483647&v=beta&t=dEGAWexroP3JXk8w8h0d4GG3Hv5dkBYp0_ueFFA2HxY",
+          },
+          {
             name: "Hirwa J. Eric",
-            position: "Software Engineer",
+            position: "Head of Academics & Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266268/hirwa.jpg",
           },
           {
             name: "Impuhwe Stellah",
-            position: "Software Engineer",
+            position: "Software Developer & Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266300/stella.jpg",
           },
           {
             name: "Ntirushwa Brice Kelly",
-            position: "Software Engineer",
+            position: "Software Developer & Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266292/kelly.jpg",
           },
         ],

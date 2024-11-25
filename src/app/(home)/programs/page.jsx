@@ -7,16 +7,10 @@ const Page = () => {
   const { bannerData, programs } = ProgramsPageData;
 
   return (
-    <>
-      <div className="w-full">
-        <div>
-          <DefaultBanner title={bannerData.title} backgroundImage={bannerData.backgroundImage} />
-        </div>
-        <div>
-          <ProgramsDetailed programs={programs} />
-        </div>
-      </div>
-    </>
+    <div className="w-full">
+      <DefaultBanner title={bannerData.title} backgroundImage={bannerData.backgroundImage} />
+      <ProgramsDetailed programs={programs} />
+    </div>
   );
 };
 
