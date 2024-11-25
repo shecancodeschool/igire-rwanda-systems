@@ -89,7 +89,7 @@ function ImpactSection() {
     return (
         <section className="bg-orange-200 text-black py-12 md:py-24 font-ibm">
             <div className="max-w-screen-xl mx-auto px-4">
-                <h2 className="text-4xl text-center md:text-start font-semibold mb-10">Our impact in numbers</h2>
+                <h2 className="text-4xl text-center md:text-start font-semibold mb-10">Our Impact in Numbers</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 text-xl gap-10 mb-12">
                     {impactStats.map((stat, index) => (
                         <ImpactStat key={index} number={stat.number} description={stat.description} />

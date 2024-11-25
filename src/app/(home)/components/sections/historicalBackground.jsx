@@ -6,7 +6,7 @@ export default function HistoricalBackground({ HistoryBgData }) {
   const { title, description, btn, image } = HistoryBgData;
   return (
     <>
-      <div className="w-full flex justify-center items-start py-12 md:py-24 bg-orange-100">
+      <div className="w-full flex justify-center items-start py-12 md:py-24 bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-center max-w-screen-xl px-4">
           <div className="flex flex-col gap-5 md:gap-10">
             <h2 className="text-4xl font-semibold">{title}</h2>
