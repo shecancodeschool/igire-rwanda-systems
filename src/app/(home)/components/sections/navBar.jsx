@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="bg-white sticky top-0 z-50 flex justify-center px-5 py-3 shadow-md font-ibm w-full">
       <div className="flex justify-between items-center w-full md:max-w-screen-xl">
         {/* Logo  */}
-        <div className="flex items-center">
+        <Link href={"/"} className="flex cursor-pointer items-center">
           <Image
             src={navbarData.logoSrc}
             width={40}
@@ -25,7 +25,7 @@ export default function Navbar() {
             <h2 className="text-sm">{navbarData.title1}</h2>
             <p className="text-md">{navbarData.title2}</p>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Menu Buttons  */}
         <div className="hidden md:hidden lg:flex justify-center items-center space-x-12 font-bold">
@@ -42,9 +42,9 @@ export default function Navbar() {
 
         {/* Mobile Menu Buttons  */}
         <div className="lg:hidden flex items-center gap-8">
-          <button className="bg-black text-white px-6 py-3 lg:px-8 lg:py-4 hover:bg-gray-600">
+          <Link href={'/contact'} className="bg-green-800 hover:bg-green-600 text-white lg:flex px-6 py-3 font-bold">
             {navbarData.connectButtonText}
-          </button>
+          </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-800 focus:outline-none"
@@ -88,7 +88,7 @@ export default function Navbar() {
         )}
 
         {/* Connect Button  */}
-        <Link href={'/contact'} className="bg-black text-white hidden lg:flex px-6 py-3 hover:bg-gray-600">
+        <Link href={'/contact'} className="bg-green-800 hover:bg-green-600 text-white hidden lg:flex px-6 py-3 font-bold">
           {navbarData.connectButtonText}
         </Link>
 

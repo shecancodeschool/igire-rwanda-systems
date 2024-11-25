@@ -75,7 +75,7 @@ const HomePageData = {
     },
     HistoryBgData: {
         title: "Our Background",
-        description: "Igire Rwanda Organization is dedicated to empowering young girls and women, providing them with the skills, resources, and support they need to thrive. Through education, mentorship, and hands-on training programs, Igire Rwanda helps these women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+        description: "Igire Rwanda Organization (IRO) is a non profit committed to transforming the lives of youth, with a focus on women, by providing access to digital skills, mentorship, and meaningful job opportunities.",
         btn: "Read more",
         src: "https://res.cloudinary.com/drfzbtbzi/video/upload/v1730670533/igire-video.mp4" || null,
     },

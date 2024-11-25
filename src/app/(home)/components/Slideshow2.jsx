@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const slidesData = [
-  {
-    type: 'image',
-    src: 'https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473374/tb5ckb00ipfwqz4pxqxp.jpg',
-    caption: 'AWE',
-  },
+  // {
+  //   type: 'image',
+  //   src: 'https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473374/tb5ckb00ipfwqz4pxqxp.jpg',
+  //   caption: 'AWE',
+  // },
   {
     type: 'image',
     src: 'https://res.cloudinary.com/drfzbtbzi/image/upload/v1730472986/presentaion.jpg',
