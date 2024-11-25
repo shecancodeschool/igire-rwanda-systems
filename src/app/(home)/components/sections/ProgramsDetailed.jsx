@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Container from "../container";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const ProgramsDetailed = ({ programs }) => {
     if (!Array.isArray(programs)) {
@@ -52,12 +54,12 @@ const ProgramsDetailed = ({ programs }) => {
     };
 
     return (
-        <section className="my-12 font-ibm">
+        <section className="my-12 md:my-24 font-ibm">
             <Container className="bg-green-300">
                 {programs.map((program, index) => (
-                    <div key={index} className="mb-12 mx-24 max-w-screen-xl">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">{program.title}</h2>
-                        <p className="text-base md:text-xl mb-5 text-justify">{program.description}</p>
+                    <div key={index} className="mb-12 flex flex-col max-w-screen-xl gap-4">
+                        <Link href={program.link} className="text-2xl text-orange-500 md:text-3xl font-bold">{program.title}</Link>
+                        <p className="text-base md:text-xl text-justify">{program.description}</p>
                         <div className="flex flex-col md:flex-row md:items-start md:gap-6">
                             <Slider {...settings} className="w-full mb-4 md:mb-10">
                                 {program.images.map((image, imgIndex) => (
@@ -73,6 +75,10 @@ const ProgramsDetailed = ({ programs }) => {
                                 ))}
                             </Slider>
                         </div>
+                        <Link href={program.link} className="flex items-center justify-between gap-5 text-center py-4 px-6 bg-green-800 text-white hover:bg-green-600 w-fit text-base">
+                            <span>Visit Site</span>
+                            <ChevronRight />
+                        </Link>
                     </div>
 
                 ))}
