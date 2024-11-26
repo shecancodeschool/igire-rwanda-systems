@@ -1,15 +1,15 @@
 import DefaultBanner from "../components/DefaultBanner";
 import React from "react";
 import ProgramsPageData from "@/fakeDatas/ProgramPageFakes";
-import ProgramsDetailed from "../components/sections/ProgramsDetailed";
+import ProgramsDetails from "../components/sections/ProgramsDetails";
 
 const Page = () => {
   const { bannerData, programs } = ProgramsPageData;
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col items-center justify-center">
       <DefaultBanner title={bannerData.title} backgroundImage={bannerData.backgroundImage} />
-      <ProgramsDetailed programs={programs} />
+      <ProgramsDetails programs={programs} />
     </div>
   );
 };

@@ -4,11 +4,10 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Container from "../container";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-const ProgramsDetailed = ({ programs }) => {
+const ProgramsDetails = ({ programs }) => {
     if (!Array.isArray(programs)) {
         return <p>No programs available.</p>;
     }
@@ -44,7 +43,7 @@ const ProgramsDetailed = ({ programs }) => {
                 },
             },
             {
-                breakpoint: 1280, 
+                breakpoint: 1280,
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
@@ -54,10 +53,10 @@ const ProgramsDetailed = ({ programs }) => {
     };
 
     return (
-        <section className="my-12 md:my-24 font-ibm">
-            <Container className="bg-green-300">
+        <section className="my-12 md:my-24 w-full font-ibm">
+            <div className="px-4 flex flex-col justify-between mx-auto max-w-screen-xl w-full gap-12">
                 {programs.map((program, index) => (
-                    <div key={index} className="mb-12 flex flex-col max-w-screen-xl gap-4">
+                    <div key={index} className="flex flex-col gap-6 w-full">
                         <Link href={program.link} className="text-2xl text-orange-500 md:text-3xl font-bold">{program.title}</Link>
                         <p className="text-base md:text-xl text-justify">{program.description}</p>
                         <div className="flex flex-col md:flex-row md:items-start md:gap-6">
@@ -80,11 +79,10 @@ const ProgramsDetailed = ({ programs }) => {
                             <ChevronRight />
                         </Link>
                     </div>
-
                 ))}
-            </Container>
+            </div>
         </section>
     );
 };
 
-export default ProgramsDetailed;
+export default ProgramsDetails;

@@ -13,8 +13,6 @@ export default function WhatWeDo() {
     <section className="py-12 md:py-24 font-ibm bg-orange-200 px-4">
       <div className="flex flex-col justify-center items-center mb-14">
         <h2 className="text-4xl text-black font-semibold">Our Programs</h2>
-        {/* <p className="mt-4 w-full md:w-2/3 mx-auto text-xl text-center max-w-screen-xl">Our Programs</p> */}
-        {/* This is a sample  */}
       </div>
       {whatWeDoData.map((section, index) => {
         const SlideshowComponent = slideshowComponents[section.slideshowComponent];
