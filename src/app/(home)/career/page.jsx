@@ -13,17 +13,17 @@ export default function page() {
   return (
     <div className="">
       <DefaultBanner
-        title={bannerData.title}
-        backgroundImage={bannerData.backgroundImage}
+        title={"Careers"}
+        backgroundImage={"scc1.jpeg"}
       />
       <Solution SolutionSectionData={AboutIgireRwandaTeam} />
       <section className="flex flex-col max-w-screen-xl w-full px-4 gap-10 md:gap-20 py-12 md:py-24 mx-auto items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <Image src={"/awe.png"} alt="" width={500} height={500} />
+          <Image src={"/scc23.jpg"} alt="" width={1000} height={1000} />
           <div>
             <h2 className="text-4xl font-bold mb-5">Interested in making impact in the community</h2>
             <p>
-              Join us to develop your skills in one of the world’s fastest-growing companies with opportunities in Budapest, London, Austin, Singapore and Tallinn.
+              Join us to develop and put to use your skills in one of Rwanda's biggest female and youth empowerment organizations with opportunities in Software Development, Marketing, People and Training.
               <br />
               <br />
               You’ll experience ownership and empowerment within your role. You’ll learn by doing, working directly with our teams to take on real-world projects that impact millions of people around the world.
@@ -37,16 +37,13 @@ export default function page() {
           <div>
             <h2 className="text-4xl font-bold mb-5">Interns & Grads at Igire Rwanda Organization</h2>
             <p>
-              We currently offer internships in Engineering, Design, Data Science, Data Analytics and People. You’ll join one of our teams for 3 months over the summer to work on customer-facing projects and help us solve real business challenges.
+              We currently offer internships in Software Development, Marketing, and Training. You’ll join one of our teams for 3 months to work on customer-facing projects, technical facilitation and help us grow our community.
               <br />
               <br />
-              We’re also on the lookout for graduates in Engineering, Data Science, People, Finance & Servicing. You’ll get real responsibility from day one, alongside coaching from your lead and team.
-              <br />
-              <br />
-              And in our London and Sao Paulo offices, we also offer apprenticeship experiences in the People and Engineering teams.
+              We’re also on the lookout for graduates in Software Engineering, Marketing, People, Finance & Servicing. You’ll get real responsibility from day one, alongside coaching from your lead and team.
             </p>
           </div>
-          <Image src={"/awe.png"} alt="" width={500} height={500} />
+          <Image src={"/scc1.jpeg"} alt="" width={1000} height={1000} />
         </div>
       </section>
       <section className="bg-orange-300 flex flex-col justify-center items-center">
@@ -59,7 +56,7 @@ export default function page() {
                 <h2 className="text-2xl font-bold">{job.title}</h2>
                 <div className="flex flex-wrap gap-4 items-center">
                   <span className="text-sm px-3 py-1 rounded-full bg-gray-200 text-black">{job.location}</span>
-                  <span className="text-sm px-3 py-1 rounded-full bg-green-300 text-black">{job.employmentType}</span>
+                  <span className="text-sm px-3 py-1 rounded-full bg-green-300 text-black">{job.jobType}</span>
                   <span className="text-sm px-3 py-1 rounded-full bg-orange-200 text-black">{job.openPositions} position{job.openPositions > 1 && "s"}</span>
                 </div>
               </Link>
