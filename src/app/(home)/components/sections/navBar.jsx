@@ -13,7 +13,7 @@ export default function Navbar() {
     <nav className="bg-white sticky top-0 z-50 flex justify-center px-5 py-3 shadow-md font-ibm w-full">
       <div className="flex justify-between items-center w-full md:max-w-screen-xl">
         {/* Logo  */}
-        <Link href={"/"} className="flex cursor-pointer items-center">
+        <Link href={"/"} className="flex cursor-pointer font-sans items-center">
           <Image
             src={navbarData.logoSrc}
             width={40}
@@ -22,8 +22,8 @@ export default function Navbar() {
             className="w-14 lg:w-16"
           />
           <div className="flex flex-col">
-            <h2 className="text-sm">{navbarData.title1}</h2>
-            <p className="text-md">{navbarData.title2}</p>
+            <span className="text-sm">IGIRE RWANDA</span>
+            <span className="text-sm">ORGANIZATION</span>
           </div>
         </Link>
 
