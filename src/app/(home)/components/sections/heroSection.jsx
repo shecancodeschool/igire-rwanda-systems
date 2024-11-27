@@ -15,7 +15,7 @@ export default function HeroSection() {
 
     return (
         <section className="flex w-full flex-wrap md:flex-nowrap items-center max-w-screen-xl mx-auto relative">
-            <div className="flex flex-col gap-4 bg-orange-500 text-white w-full lg:w-1/2 mr-0 lg:-mr-48 h-fit px-5 py-16 lg:px-10 items-center lg:items-start z-40 ">
+            <div className="flex flex-col gap-4 bg-black text-white w-full lg:w-1/2 mr-0 lg:-mr-48 h-fit px-5 py-16 lg:px-10 items-center lg:items-start z-40 ">
                 <h1 className="text-5xl text-center lg:text-left font-bold">Empowering Youth towards Economic Sustainability</h1>
                 <p className="text-lg text-center lg:text-left">See what we do to empower youth towards economic sustainability</p>
                 <Link href={'/programs'} className="bg-green-800 hover:bg-green-600 text-white px-6 py-3 text-nowrap uppercase w-fit text-center font-semibold md:text-left">Our Programs</Link>
