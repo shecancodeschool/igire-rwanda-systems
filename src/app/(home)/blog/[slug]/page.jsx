@@ -1,138 +1,30 @@
-import CareerPageData from "@/fakeDatas/CareerPageData";
+import { getArticleBySlug } from "../../_actions/blogActions";
 import DefaultBanner from "../../components/DefaultBanner";
-import jobs from "@/fakeDatas/JobsData";
+import parse from "html-react-parser";
 
 export default async function page({ params }) {
     const slug = await params.slug;
-    console.log(slug);
-    const { bannerData } = CareerPageData;
-    const job = jobs.find(job => job.slug === slug);
-
-    if (!job) {
-        return <h1>Job not found</h1>;
+    const response = await getArticleBySlug(slug);
+    const article = JSON.parse(response);
+    
+    if (!article) {
+        return <h1>Article not found</h1>;
     }
 
     return (
         <div className="">
             <DefaultBanner
-                title={"Blog Details"}
-                backgroundImage={bannerData.backgroundImage}
+                title={article.title}
+                backgroundImage={article.image}
             />
             <section className="grid grid-cols-5 gap-5 sm:gap-7 md:gap-10 lg:gap-20 max-w-screen-xl mx-auto py-12 md:py-24 px-4">
                 <div id="description" className="blog-data col-span-5 md:col-span-3">
-                    <p><strong>Igire Rwanda Organization</strong> is dedicated to empowering young girls and women, providing them with the skills, resources, and support they need to thrive. Through education, mentorship, and hands-on training programs, Igire Rwanda helps these women unlock their potential, fostering their confidence and capabilities to lead in their communities. By offering opportunities in areas like entrepreneurship, technology, and leadership, the organization accelerates their journey toward economic independence and personal growth.</p>
-                    <p>At Igire Rwanda, we believe that empowered women are key to building a brighter, more inclusive future for all.</p>
-
-                    <h2>SheCanCODE Bootcamp</h2>
-                    <p>The <strong>SheCanCODE Bootcamp</strong>, one of Igire Rwanda Organization's programs, focuses on providing hands-on software development training to prepare learners for successful careers in technology. SheCanCODE is committed to educating women and ensuring they have pathways to employment after the program.</p>
-                    <p>SheCanCODE offers an immersive 16-week training program, expertly led by seasoned professionals in software engineering. The curriculum provides a robust foundation in coding fundamentals, followed by specialized tracks in either backend development, frontend development, or DevOps. This flexible approach allows participants to tailor their learning to match their passions and strengths.</p>
-                    <p>Beyond technical expertise, the program also delivers comprehensive training in vital professional skills such as communication, problem-solving, and career readiness, ensuring that graduates are fully equipped to thrive in dynamic, fast-paced work environments. A dedicated career team further supports graduates in securing job opportunities within Rwanda and beyond.</p>
-
-                    <h2>Join Our Team as a Frontend Facilitator</h2>
-                    <p>We are seeking a passionate <strong>Frontend Facilitator</strong> to join our team. The ideal candidate will not only have strong technical skills in software development but also a genuine enthusiasm for teaching and curriculum development.</p>
-
-                    <h3>Key Responsibilities</h3>
-                    <ul>
-                        <li><span class='highlight'>Curriculum Development & Training</span>
-                            <ul>
-                                <li>Design and implement comprehensive training curricula aligned with current industry standards.</li>
-                                <li>Facilitate engaging, hands-on training sessions for learners.</li>
-                                <li>Develop and administer programming assessments for training modules.</li>
-                                <li>Create and update training materials for both in-person and online classes.</li>
-                                <li>Provide individualized support to learners and foster a positive learning environment.</li>
-                                <li>Collect and analyze learner feedback to improve training programs.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Software Development</span>
-                            <ul>
-                                <li>Contribute to the development of internal software systems for IGIRE Rwanda.</li>
-                                <li>Collaborate on software projects for IGIRE Rwanda's partners and stakeholders.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Mentorship & Team Development</span>
-                            <ul>
-                                <li>Train and empower junior facilitators to enhance their technical and soft skills.</li>
-                                <li>Provide mentorship and guidance to ensure a collaborative team environment.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Graduate Career Readiness</span>
-                            <ul>
-                                <li>Develop curricula to prepare learners for seamless entry into the job market.</li>
-                                <li>Oversee soft skills development workshops and practices for career readiness.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Diversity & Inclusion</span>
-                            <ul>
-                                <li>Promote a welcoming and inclusive learning atmosphere for learners from diverse backgrounds.</li>
-                                <li>Foster equitable access and opportunities within training programs.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Administrative & Reporting</span>
-                            <ul>
-                                <li>Prepare detailed reports on training outcomes and program effectiveness for the academic manager and executive teams.</li>
-                                <li>Maintain accurate records of learners’ performance and attendance.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Community Engagement</span>
-                            <ul>
-                                <li>Host workshops, events, and academic sessions to promote technology and innovation.</li>
-                                <li>Build partnerships and promote collaboration to enhance learners’ academic and career success.</li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <h3>Qualifications & Skills</h3>
-                    <ul>
-                        <li>Frontend Development: Proficiency in HTML, CSS, JavaScript, and modern frameworks like React, Vue.js, or Next.js.</li>
-                        <li>Full-Stack Development: Basic experience working on full-stack applications using Node.js and JavaScript frameworks, especially Next.js.</li>
-                        <li>Version Control: Extensive experience with Git and platforms like GitHub or GitLab for collaboration and version management.</li>
-                        <li>DevOps Knowledge: Familiarity with CI/CD pipelines, Docker, cloud services (e.g., AWS, Azure, or GCP), and deployment strategies.</li>
-                        <li>UI/UX Design: Competence in using design tools like Figma to translate concepts into wireframes, prototypes, and design systems.</li>
-                        <li>Project Management: Experience with tools like Jira, Asana, or Trello to manage tasks, track progress, and ensure timely project delivery.</li>
-                        <li>Curriculum Development: Ability to create and update comprehensive training materials that align with industry standards.</li>
-                        <li>Team Collaboration: Experience mentoring and collaborating with cross-functional teams, including junior developers and designers.</li>
-                        <li>Problem Solving: Demonstrated ability to troubleshoot and resolve complex software issues efficiently.</li>
-                        <li>Communication Skills: Excellent verbal and written communication for delivering training and preparing documentation.</li>
-                        <li>Diverse Tech Stack: Familiarity with modern software tools and technologies that support high-quality project development and learner success.</li>
-                        <li>Passion for Learning: Commitment to staying updated with the latest trends and advancements in technology and education.</li>
-                    </ul>
-
-                    <h3>Why Join IGIRE Rwanda Organization?</h3>
-                    <ul>
-                        <li>Make a meaningful impact on the lives of learners and contribute to national development.</li>
-                        <li>Collaborate with a dynamic team passionate about technology and education.</li>
-                        <li>Opportunities for professional growth and development.</li>
-                        <li>Be part of a supportive and inclusive community committed to innovation and excellence.</li>
-                    </ul>
-
-                    <p><strong>Application deadline:</strong> [Insert Date
-                        ]</p>
-                    <p><strong>How to Apply:</strong> Please send your CV, cover letter, and portfolio to <a href='mailto:hr@igirerwanda.org' class='apply-link'>hr@igirerwanda.org</a> with a copy (CC) to <a href='mailto:education@igirerwanda.org' class='apply-link'>education@igirerwanda.org</a> with the subject line <strong>Frontend Facilitator Application</strong>.</p>
-                    <p><em>IGIRE Rwanda Organization is an equal-opportunity employer. We encourage individuals from all backgrounds to apply.</em></p>
+                    {parse(article.content)}
                 </div>
                 <div id="side-bar" className="col-span-5 md:col-span-2 bg-orange-500 p-6 h-fit rounded-lg text-white">
                     <h2 className="text-2xl font-bold mb-4">Quick Details</h2>
                     <div className="flex flex-col gap-5 text-black">
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Job Title</strong>
-                            <span className="col-span-2">{job.title}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Location</strong>
-                            <span className="col-span-2">{job.location}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Job Type</strong>
-                            <span className="col-span-2">{job.jobType}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Positions</strong>
-                            <span className="col-span-2">{job.openPositions}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Deadline</strong>
-                            <span className="col-span-2">{new Date(job.deadline).toUTCString().slice(0, 16)} - 11:59</span>
-                        </p>
+                    
                     </div>
                 </div>
             </section>
