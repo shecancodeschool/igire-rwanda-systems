@@ -1,7 +1,7 @@
 const AboutPageFakes = {
     bannerData: {
         title: "About Us",
-        backgroundImage: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473265/awe_landing_img.png",
+        backgroundImage: "/scc16.jpg",
     },
 
     topSection: {
@@ -36,7 +36,7 @@ const AboutPageFakes = {
           {
             name: "Mbanda Innocent",
             position: "CEO",
-            image: "https://media.licdn.com/dms/image/C5603AQFgfnu2ukzMOw/profile-displayphoto-shrink_200_200/0/1635430646520?e=2147483647&v=beta&t=uZ2XAS-woHmm39MBUs8XX_JVh7qkSO3KI0M_aBjBbjU",
+            image: "/innocent.jpeg",
           },
           {
             name: "Iradukunda J. Jacques",
@@ -56,7 +56,7 @@ const AboutPageFakes = {
           {
             name: "Uwase Lilian",
             position: "Operations Manager & Assistant HR",
-            image: "https://media.licdn.com/dms/image/D4E03AQEOWYWX-_WX_Q/profile-displayphoto-shrink_200_200/0/1686306845073?e=2147483647&v=beta&t=dEGAWexroP3JXk8w8h0d4GG3Hv5dkBYp0_ueFFA2HxY",
+            image: "/lili.jpg",
           },
           {
             name: "Hirwa J. Eric",

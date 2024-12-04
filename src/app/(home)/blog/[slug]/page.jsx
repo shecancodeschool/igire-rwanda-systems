@@ -1,5 +1,5 @@
 import { getArticleBySlug } from "../../_actions/blogActions";
-import DefaultBanner from "../../components/DefaultBanner";
+import ArticleBanner from "../../components/ArticleBanner";
 import parse from "html-react-parser";
 
 export default async function page({ params }) {
@@ -13,7 +13,7 @@ export default async function page({ params }) {
 
     return (
         <div className="">
-            <DefaultBanner
+            <ArticleBanner
                 title={article.title}
                 backgroundImage={article.image}
             />

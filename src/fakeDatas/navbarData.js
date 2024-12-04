@@ -4,11 +4,11 @@ export const navbarData = {
     title1: "IGIRE RWANDA",
     title2: "Organisation",
     links: [
-        { label: "HOME", href: "/" },
-        { label: "ABOUT", href: "/about" },
-        { label: "PROGRAMS", href: "/programs" },
-        { label: "CAREER", href: "/career" },
-        { label: "CONTACT", href: "/contact" },
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about" },
+        { label: "Programs", href: "/programs" },
+        { label: "Career", href: "/career" },
+        { label: "Contact", href: "/contact" },
     ],
     connectButtonText: "CONNECT",
 };
