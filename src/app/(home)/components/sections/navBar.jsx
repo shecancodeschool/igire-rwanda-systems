@@ -28,7 +28,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu Buttons  */}
-        <div className="hidden md:hidden lg:flex justify-center items-center space-x-12 font-bold">
+        <div className="hidden md:hidden lg:flex justify-center items-center space-x-12 font-semibold">
           {navbarData.links.map((link, index) => (
             <a
               key={index}
