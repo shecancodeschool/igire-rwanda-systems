@@ -3,8 +3,18 @@ import React from "react";
 
 const CallForAction = ({ CallForActionData }) => {
   const { title, description, btn } = CallForActionData;
+  const styles = {
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/scc15.jpg")`,
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'background-image 0.3s ease-in-out',
+    willChange: 'background-image',
+  }
+
   return (
-    <div className="md:flex md:justify-center py-12 md:py-24 px-4 bg-orange-500">
+    <div className="md:flex md:justify-center py-12 md:py-24 px-4" style={styles}>
       <div className="w-full text-center flex flex-col justify-center items-center gap-5 md:gap-10 font-ibm">
         <h2 className="text-4xl font-bold text-white">Do You Want To Collaborate With Us?</h2>
         <p className="font-ibm text-lg w-full md:w-2/3 text-white">We encourage pertnership and collaboration to support our mission. We therefore welcome anyone who is interested in empowering youth.</p>

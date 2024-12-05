@@ -74,7 +74,7 @@ const ProgramsDetails = ({ programs }) => {
                                 ))}
                             </Slider>
                         </div>
-                        <Link href={program.link} className="flex items-center justify-between gap-5 text-center py-4 px-6 bg-green-800 text-white hover:bg-green-600 w-fit text-base">
+                        <Link href={program.link} target="_blank" className="flex items-center justify-between gap-5 text-center py-4 px-6 bg-green-800 text-white hover:bg-green-600 w-fit text-base">
                             <span>Visit Site</span>
                             <ChevronRight />
                         </Link>
