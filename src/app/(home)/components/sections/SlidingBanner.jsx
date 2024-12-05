@@ -23,7 +23,7 @@ export default function BannerSlider() {
   }, [nextSlide]);
 
   return (
-    <div className="relative w-full h-[300px] md:h-[600px] overflow-hidden">
+    <div className="relative w-full h-screen md:h-[600px] overflow-hidden">
       {BannerData.map((slide, index) => (
         <div
           key={index}
@@ -37,7 +37,7 @@ export default function BannerSlider() {
             priority={index === currentSlide}
             sizes="100vw"
           />
-          <div className="relative w-full h-full max-w-screen-xl px-4 mx-auto">
+          <div className="relative w-full h-full flex flex-col items-center md:items-start justify-center max-w-screen-xl px-4 mx-auto">
             <BannerContent slide={slide} />
           </div>
         </div>
