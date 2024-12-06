@@ -18,7 +18,7 @@ const socialAccounts = [
   },
   {
     icon: <X size={24} />,
-    href: "#"
+    href: "https://twitter.com/ShecancodeRW"
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <header>
       <top className="hidden lg:block bg-orange-500 w-full px-4 py-2">
-        <div className="max-w-screen-xl w-full flex justify-end gap-4 mx-auto text-white">
+        <div className="max-w-screen-xl w-full flex justify-end gap-4 mx-auto text-sm text-white">
           {socialAccounts && socialAccounts.map(socialAccount => (
             <a key={socialAccount.icon} href={socialAccount.href} target="_blank" className="transition-colors duration-300">
               {socialAccount.icon}

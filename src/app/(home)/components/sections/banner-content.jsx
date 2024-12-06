@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "../ui/button";
 
 export function BannerContent({ slide }) {
   return (
@@ -10,9 +9,9 @@ export function BannerContent({ slide }) {
       <p className="text-sm md:text-base text-gray-700 mb-6">
         {slide.description}
       </p>
-      <Link href={slide.link} className="bg-green-800 w-fit hover:bg-green-600 text-white lg:flex px-6 py-3 font-bold">
+      {slide.buttonText && <Link href={slide.link} className="bg-green-800 w-fit hover:bg-green-600 text-white lg:flex px-6 py-3 font-bold">
           {slide.buttonText}
-      </Link>
+      </Link>}
     </div>
   );
 }

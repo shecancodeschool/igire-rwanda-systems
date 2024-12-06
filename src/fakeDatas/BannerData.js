@@ -1,30 +1,30 @@
 export const BannerData = [
     {
         image: '/F8.jpeg',
-        title: 'Featured Product 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac nunc euismod, ultricies elit vel, placerat ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-        buttonText: 'Discover Now',
-        link: '/product-1'
+        title: 'Welcome to Igire Rwanda Organisation',
+        description: 'Our mission is to foster economic independence and create pathways to lasting success.',
+        buttonText: 'More About Us',
+        link: '/about'
     },
     {
         image: '/scc15.jpg',
-        title: 'Featured Product 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac nunc euismod, ultricies elit vel, placerat ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-        buttonText: 'Discover Now',
-        link: '/product-2'
+        title: 'Our mission',
+        description: 'Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills ad an opportunities driving sustainable growth & innovation in their communities & beyond',
+        buttonText: 'More About Us',
+        link: '/about'
     },
     {
         image: '/scc23.jpg',
-        title: 'Featured Product 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac nunc euismod, ultricies elit vel, placerat ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-        buttonText: 'Discover Now',
-        link: '/product-3'
+        title: 'We present to you SheCanCODE Bootcamp.',
+        description: 'In SheCanCODE Bootcamp, we provide top-notch software engineering trainings tailored to different experience levels of our trainees and applicants.',
+        buttonText: 'Read More',
+        link: '/programs'
     },
     {
         image: '/scc16.jpg',
-        title: 'Featured Product 4',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac nunc euismod, ultricies elit vel, placerat ligula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-        buttonText: 'Discover Now',
-        link: '/product-4'
+        title: 'We present to you AWE.',
+        description: 'We implement a six-month entrepreneurship program in partnership with the US Embassy providing approximately 30 emerging female entrepreneurs with knowledge, networks, and access they need to launch and scale successful businesses.',
+        buttonText: 'More About This Program',
+        link: '/programs'
     }
 ];
