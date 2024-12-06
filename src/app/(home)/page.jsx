@@ -13,7 +13,6 @@ import SlidingBanner from "./components/sections/SlidingBanner";
 export default function Home() {
   return (
     <>
-      {/* <HeroSection /> */}
       <SlidingBanner />
       <div className="flex flex-col">
         <Solution SolutionSectionData={HomePageData.SolutionSectionData} />

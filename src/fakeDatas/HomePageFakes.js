@@ -30,8 +30,8 @@ const HomePageData = {
     ImpactData:{
         impactStats :[
             {
-                number: "8",
-                description: "Since we started providing trainings.",
+                number: "300+",
+                description: "Secondary sschool girls were trained in digital literacy and supported with school materials",
             },
             {
                 number: "900+",
@@ -48,11 +48,11 @@ const HomePageData = {
         ],
     
         images: [
-            { src: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473374/suceess-2.jpg", alt: 'Succes stories' },
-            { src: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473306/suceess-1.png", alt: 'Succes stories' },
-            { src: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730672242/scc-3.jpg", alt: 'Succes stories' },
-            { src: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730672249/sc-4.jpg", alt: 'Succes stories' },
-            { src: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1730473306/suceess-1.png", alt: 'Succes stories' },
+            { src: "/F1.jpg", alt: 'Succes stories' },
+            { src: "/scc22.jpg", alt: 'Succes stories' },
+            { src: "/scc3.jpeg", alt: 'Succes stories' },
+            { src: "/scc16.jpg", alt: 'Succes stories' },
+            { src: "/scc34.jpeg", alt: 'Succes stories' },
         ]
     },
     WhatWeDoSectionData: {
