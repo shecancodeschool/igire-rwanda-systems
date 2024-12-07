@@ -54,17 +54,17 @@ const AboutPageFakes = {
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266280/josiane.jpg",
           },
           {
-            name: "Uwase Lilian",
+            name: "Uwase Liliane",
             position: "Operations Manager & Assistant HR",
             image: "/lili.jpg",
           },
           {
-            name: "Hirwa J. Eric",
+            name: "Hirwa Jean Eric",
             position: "Head of Academics & Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266268/hirwa.jpg",
           },
           {
-            name: "Impuhwe Stellah",
+            name: "Impuhwe Stella",
             position: "Software Developer & Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266300/stella.jpg",
           },

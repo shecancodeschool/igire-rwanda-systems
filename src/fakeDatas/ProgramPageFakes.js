@@ -5,7 +5,7 @@ const ProgramsPageData = {
   },
   programs: [
     {
-      title: "SheCanCode",
+      title: "SheCanCODE Bootcamp",
       link: "https://www.shecancodeschool.org",
       description:
         "We provide top-notch software engineering trainings tailored to different experience levels of our trainees and applicants. At SheCanCODE you will learn and gain practical experience in diferent technologies. We collaborate with many different software engineering and business related companies to find job and apprenticeship opportunities for our trainees. We also work with those companies to provide motivation, and share experience with our trainees to demonstrate opportunies that are available in the tech field expecially for women.",

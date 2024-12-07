@@ -1,86 +1,59 @@
 import { FaFacebookF, FaLinkedinIn, FaYoutube, FaTwitter } from 'react-icons/fa';
-import { quickLinks, companyLinks, visionText, tweets } from '@/fakeDatas/footerData';
+import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white flex justify-center align-middle py-10 px-6 md:px-[1.563rem] font-ibm">
-            <div className='max-w-screen-xl'>
-                {/* Signup Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center mb-6 px-2">
-                    <div className="mb-4 md:mb-0">
-                        <h2 className="font-bold text-2xl">Sign up for updates</h2>
-                        <p className="text-white w-3/3 text-xl">
-                            To receive updates from Igire Rwanda Organization Alert, including our latest toolkits, reports,
+        <footer className="bg-black text-white flex flex-col justify-center items-center mx-auto w-full">
+            <div className='bg-orange-500 w-full py-10 md:py-16'>
+                <div className='grid grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-xl w-full px-4 lg:px-0 gap-5 md:gap-20'>
+                    <div className='flex flex-col gap-4'>
+                        <h3 className='text-3xl font-bold'>Sign up for updates</h3>
+                        <p>To receive updates from International Alert, including about our latest toolkits, reports, campaigns and webinars, and examples of how peacebuilders are making real change in their communities, please enter your details.</p>
+                    </div>
+                    <form className='flex flex-col gap-4'>
+                        <div className='flex gap-4 flex-wrap md:flex-nowrap justify-end'>
+                            <input type="text" placeholder='Email address' className='w-full px-4 py-2' />
+                            <button className='bg-green-800 font-bold tracking-widest w-full md:w-fit text-white px-4 py-2'>Subscribe</button>
+                        </div>
+                        <p>
+                            We will treat your information with respect. For more information about our privacy practices please &nbsp;
+                            <Link href="/privacy-policy" className='underline'>read our privacy policy.</Link>
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-2 text-white">
-                        <div className="flex items-center gap-1">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="p-2 rounded-l-md bg-white text-black"
-                            />
-                            <button className="bg-black text-white font-bold p-2 rounded-r-md hover:bg-gray-600">Subscribe</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-
-                {/* Main Footer Content */}
-                <div className="border-t border-gray-700 pt-6 px-2">
-                    <div className="flex flex-col md:flex-row justify-between mb-6">
-                        {/* Logo and Vision Section */}
-                        <div className="md:w-1/3 mb-6 md:mb-0">
-                            <div className="mb-4">
-                                <Image src="/logo.png" width={100} height={100} alt="Logo" className="w-20 h-auto" />
-                            </div>
-                            <h3 className="font-bold text-2xl">Our vision</h3>
-                            <p className="text-white text-xl">{visionText}</p>
-                        </div>
-
-                        {/* Quick Links Section */}
-                        <div className="flex flex-col md:flex-row md:w-2/3 justify-around">
-                            <div className="mb-4 md:mb-0">
-                                <h4 className="font-semibold text-2xl">Quick Links</h4>
-                                <ul className="text-white mt-7 text-xl flex flex-col gap-3">
-                                    {quickLinks.map((link, index) => (
-                                        <a key={index} href={link.url}><li className='hover:text-gray-400'>{link.label}</li></a>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="mb-4 md:mb-0">
-                                <h4 className="font-semibold text-2xl">Company</h4>
-                                <ul className="text-white mt-7 text-xl flex flex-col gap-3">
-                                    {companyLinks.map((link, index) => (
-                                        <a key={index} href={link.url}><li className='hover:text-gray-400'>{link.label}</li></a>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Tweets Section */}
-                        <div className="md:w-1/3">
-                            {/* <h4 className="font-semibold text-2xl">Tweets</h4>
-                            <p className="text-white text-xl">Stay tuned for our latest tweets and updates here.</p> */}
-                            {/* <div className="text-white mt-4 text-xl">
-                                {tweets.map((tweet, index) => (
-                                    <p key={index}>{tweet}</p>
-                                ))}
-                            </div> */}
-                            {/* Social Icons */}
-                            <div className="flex space-x-4 mt-4">
-                                <FaTwitter size={20} className="text-white hover:text-blue-300 cursor-pointer" />
-                                <FaFacebookF size={20} className="text-white hover:text-blue-500 cursor-pointer" />
-                                <FaYoutube size={20} className="text-white hover:text-red-400 cursor-pointer" />
-                                <FaLinkedinIn size={20} className="text-white hover:text-blue-600 cursor-pointer" />
-                            </div>
-                        </div>
+            </div>
+            <div className='bg-black w-full py-10 md:py-16'>
+                <div className='grid grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-xl w-full px-4 lg:px-0 gap-5 md:gap-20'>
+                    <div className='flex flex-col gap-4 text-lg font-bold'>
+                        <p>Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills ad an opportunities driving sustainable growth & innovation in their communities & beyond</p>
                     </div>
-
-                    {/* Bottom Section */}
-                    <hr className="border-gray-700 mb-4" />
-                    <div className="text-white text-sm text-center">
-                        <p className='text-xl'>© 2024 ALL RIGHTS RESERVED. Igire Rwanda Organization (Reg. No. 327553) Company Reg. No. 02153193</p>
+                    <ul className='grid grid-cols-2 md:grid-cols-3 gap-2 items-center'>
+                        <li><Link href="/" className='hover:underline'>Home</Link></li>
+                        <li><Link href="/about" className='hover:underline'>About</Link></li>
+                        <li><Link href="/programs" className='hover:underline'>Programs</Link></li>
+                        <li><Link href="/blog" className='hover:underline'>Blog</Link></li>
+                        <li><Link href="/contact" className='hover:underline'>Contact</Link></li>
+                    </ul>
+                </div>
+            </div>
+            <div className='bg-black w-full text-slate-300 text-sm'>
+                <div className='grid grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-xl w-full px-4 md:px-0 gap-5 md:gap-20'>
+                    <div className='flex items-center justify-center md:justify-start gap-4'>
+                        <Image src="/Igire_Rwanda_Logo.png" alt="logo" width={100} height={100} className='bg-white p-2 hidden md:block' />
+                        <p className='text-center lg:text-start'>&copy; {new Date().getFullYear()} IGIRE RWANDA ORGANIZATION. All Rights Reserved.</p>
+                    </div>
+                    <div className='flex flex-col md:flex-row justify-center md:justify-between gap-8 items-center'>
+                        <ul className='flex flex-col md:flex-row gap-2 items-center'>
+                            <li><Link href="/privacy-policy" className='hover:underline'>PRIVACY POLICY</Link></li>
+                            <li><Link href="/privacy-policy" className='hover:underline'>TERMS AND CONDITIONS</Link></li>
+                        </ul>
+                        <ul className='flex gap-10 items-center'>
+                            <li><FaFacebookF /></li>
+                            <li><FaLinkedinIn /></li>
+                            <li><FaYoutube /></li>
+                            <li><FaTwitter /></li>
+                        </ul>
                     </div>
                 </div>
             </div>
