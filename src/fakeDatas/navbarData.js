@@ -7,7 +7,7 @@ export const navbarData = {
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
         { label: "Programs", href: "/programs" },
-        // { label: "Stories", href: "/blog" },
+        { label: "Stories", href: "/blog" },
         { label: "Careers", href: "/career" },
         { label: "Contact", href: "/contact" },
     ],
