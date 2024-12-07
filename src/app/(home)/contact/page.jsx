@@ -1,110 +1,42 @@
-import { RiArrowRightSLine } from "react-icons/ri";
-import { heroData } from "@/fakeDatas/heroData";
-import Image from "next/image";
-import {
-  MapPin,
-  Mail,
-  User,
-  Phone,
-  Instagram,
-  Twitter,
-  Linkedin,
-  LocateIcon,
-} from "lucide-react";
-import { ContactData } from "@/fakeDatas/ContactPageFakes";
+import { Mail, MapPin, Phone } from "lucide-react";
 import DefaultBanner from "../components/DefaultBanner";
 
-export default function HeroSection() {
-  const { imageSrc, imageAlt, title, description, buttonText } = heroData;
-  const { bannerData } = ContactData;
+export default function page() {
   return (
     <>
-      <div>
-        <DefaultBanner
-          title={bannerData.title}
-          backgroundImage={bannerData.backgroundImage}
-        />
-      </div>
-      <div className=" lg:flex lg:justify-center w-full mb-20">
-        <div className=" md:py-10 lg:max-w-screen-xl flex flex-col-reverse justify-center items-center md:flex-row md:container ">
-          {/* Contact Information Section */}
-          <div className=" relative sm:text-center sm:gap-5 items-center md:text-start left-0 bottom-16 md:bottom-0 bg-black text-white flex flex-col justify-evenly px-5 py-10 w-[85%] md:w-[40%] md:left-12">
-            <div className="flex flex-col items-center ">
-              <h2 className="text-xl md:text-2xl font-semibold mb-4">
-                {ContactData.title}
-              </h2>
-
-              <div className=" space-y-3 md:space-y-4 text-lg md:text-xl">
-                <div className="flex items-start space-x-2 md:space-x-3">
-                  <MapPin className="w-4 h-4 md:w-5 md:h-5 mt-1" />
-                  <div>
-                    <p>{ContactData.location}</p>
-                    <p>{ContactData.street}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-2 md:space-x-3">
-                  <Mail className="w-4 h-4 md:w-5 md:h-5" />
-                  <p>{ContactData.email}</p>
-                </div>
-
-                <div className="flex items-center space-x-2 md:space-x-3">
-                  <User className="w-4 h-4 md:w-5 md:h-5" />
-                  <p>{ContactData.city}</p>
-                </div>
-
-                <div className="flex items-center space-x-2 md:space-x-3">
-                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
-                  <p>{ContactData.Phone}</p>
-                </div>
-              </div>
+      <DefaultBanner title="Contact Us" backgroundImage={'/scc23.jpg'} />
+      <section className="flex flex-col items-center justify-center w-full bg-slate-50">
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-screen-xl px-5 lg:px-0 py-12 md:py-24 w-full mx-auto">
+            <div className="flex flex-col items-start justify-center w-full">
+              <h2 className="text-3xl text-start font-bold mb-4">Let's Get In Touch.</h2>
+              <p className="text-lg mb-8">We would love to hear from you. Please fill out the form below and we will get back to you as soon as possible.</p>
+              <table className="flex flex-col items-start justify-center w-full">
+                <tr className="mb-4">
+                  <td className="font-semibold text-orange-400"><MapPin /></td>
+                  <td>&nbsp;&nbsp;KG 549 St, 36 Kigali</td>
+                </tr>
+                <tr className="mb-4">
+                  <td className="font-semibold text-orange-400"><Mail /></td>
+                  <td>&nbsp;&nbsp;education@igirerwanda.org</td>
+                </tr>
+                <tr className="mb-4">
+                  <td className="font-semibold text-orange-400"><Phone /></td>
+                  <td>&nbsp;&nbsp;+250 788 293 894</td>
+                </tr>
+              </table>
             </div>
-
-            <div className="flex items-center space-x-3 md:space-x-4 mt-6">
-              <Instagram className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-gray-300" />
-              <Twitter className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-gray-300" />
-              <Linkedin className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-gray-300" />
-            </div>
-          </div>
-          <div className=" py-10 mb-4 md:mb-0 w-full md:w-[screen] lg:border-0 xl:w-[90%] ">
-            <div className="mb-12 md:mb-0 max-w-full md:max-w-4xl  md:h-[30rem] shadow-xl overflow-hidden flex items-center justify-center">
-              {/* Right Section - Contact Form */}
-              <div className="place-items-center p-4 md:p-5 md:w-3/5 flex flex-col justify-center h-full">
-                <h2 className="text-xl md:text-2xl font-semibold text-black mb-2">
-                  {ContactData.subtitle}
-                </h2>
-                <p className="text-gray-600 mb-4 md:mb-6 text-lg md:text-xl">
-                  {ContactData.description}
-                </p>
-
-                <form className="space-y-3 md:space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your name..."
-                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-black"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-black"
-                  />
-                  <textarea
-                    rows={4}
-                    placeholder="Type your message here..."
-                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-black resize-none"
-                  ></textarea>
-                  <button
-                    type="submit"
-                    className="mb-4 md:mb-0 w-full rounded-lg bg-gradient-to-r from-black to-gray-400 text-white font-semibold py-2 md:py-3 px-6 md:px-8 shadow-md hover:from-gray-500 hover:to-black transition-all duration-300 text-lg md:text-xl"
-                  >
-                    {ContactData.sendButton}
-                  </button>
-                </form>
-              </div>
-            </div>
+            <form className="flex flex-col items-center justify-center w-full bg-orange-200 p-8 md:p-16">
+              <input type="text" className="w-full border border-black px-3 py-2 mb-4" placeholder="Full name" />
+              <input type="text" className="w-full border border-black px-3 py-2 mb-4" placeholder="Email" />
+              <textarea className="w-full border border-black px-3 py-2 mb-4" rows={'6'} placeholder="Message"></textarea>
+            </form>
           </div>
         </div>
-      </div>
+        <div className="flex flex-col items-center justify-center w-full border border-black">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.553554881119!2d30.072044274050132!3d-1.9306041366678404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca70041075f0d%3A0x8dd8bd686d407d92!2sSheCanCode%20Training%20Center!5e0!3m2!1sfr!2srw!4v1717664442768!5m2!1sfr!2srw" width="350" height="450" className="w-full" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
     </>
-  );
+  )
 }

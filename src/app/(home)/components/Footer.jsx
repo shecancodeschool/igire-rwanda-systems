@@ -1,6 +1,7 @@
-import { FaFacebookF, FaLinkedinIn, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaYoutube, FaTwitter, FaInstagram, FaInstagramSquare } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import { X } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -49,10 +50,10 @@ const Footer = () => {
                             <li><Link href="/privacy-policy" className='hover:underline'>TERMS AND CONDITIONS</Link></li>
                         </ul>
                         <ul className='flex gap-10 items-center'>
-                            <li><FaFacebookF /></li>
-                            <li><FaLinkedinIn /></li>
-                            <li><FaYoutube /></li>
-                            <li><FaTwitter /></li>
+                            <li><Link href="https://www.facebook.com/igirerwandaorganization" target='_blank'><FaFacebookF /></Link></li>
+                            <li><Link href="https://www.instagram.com/shecancode_bootcamp" target='_blank'><FaInstagramSquare /></Link></li>
+                            <li><Link href="https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ" target='_blank'><FaYoutube /></Link></li>
+                            <li><Link href="https://twitter.com/ShecancodeRW" target='_blank'><X /></Link></li>
                         </ul>
                     </div>
                 </div>

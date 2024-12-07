@@ -15,7 +15,7 @@ export default async function FeaturedStories() {
         {articles.length === 0 && <div className="text-center text-gray-500">No articles found.</div>}
         <div className="w-full grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {articles.length > 0 && articles.map((article, index) => (
-            <div key={index} className="bg-orange-50 rounded-lg shadow-md overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+            <div key={index} className="bg-orange-50 shadow-md overflow-hidden group hover:shadow-lg transition-shadow duration-300">
               <div className="aspect-w-16 aspect-h-9 relative overflow-hidden ">
                 <Image
                   src={article.image}
