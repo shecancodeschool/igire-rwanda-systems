@@ -23,7 +23,7 @@ export default function BannerSlider() {
   }, [nextSlide]);
 
   return (
-    <div className="relative w-full h-screen md:h-[600px] overflow-hidden">
+    <div className="relative w-full h-screen md:h-[800px] overflow-hidden">
       {BannerData.map((slide, index) => (
         <div
           key={index}
