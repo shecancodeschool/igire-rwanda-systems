@@ -9,7 +9,7 @@ function ImpactStat({ number, description }) {
     return (
         <div className="text-start font-ibm">
             <p className="text-5xl font-bold text-orange-500">{number}</p>
-            <p className="text-lg mt-2">{description}</p>
+            <p className="text-base md:text-lg mt-2">{description}</p>
         </div>
     );
 }

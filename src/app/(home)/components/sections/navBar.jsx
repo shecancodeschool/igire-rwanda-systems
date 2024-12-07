@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Instagram, Facebook, X } from 'lucide-react';
-import { MdClose, MdMenu } from "react-icons/md";
+import { Instagram, Facebook, X, Youtube } from 'lucide-react';
+import { usePathname } from "next/navigation";
 
 const navbarData = {
   logoSrc: "/Igire_Rwanda_Logo.png",
@@ -27,6 +27,10 @@ const socialAccounts = [
     href: "https://www.facebook.com/igirerwandaorganization"
   },
   {
+    icon: <Youtube size={24} />,
+    href: "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ"
+  },
+  {
     icon: <X size={24} />,
     href: "https://twitter.com/ShecancodeRW"
   },
@@ -37,6 +41,8 @@ export default function Navbar() {
   const [topBarVisible, setTopBarVisible] = useState(true);
   const [scrollDirection, setScrollDirection] = useState('up');
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +58,7 @@ export default function Navbar() {
       // Hide top bar when scrolling down past 100 pixels
       if (currentScrollY > 100 && scrollDirection === 'down') {
         setTopBarVisible(false);
-      } 
+      }
       // Show top bar when scrolling up
       else if (scrollDirection === 'up') {
         setTopBarVisible(true);
@@ -74,7 +80,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar with Transition */}
-      <div 
+      <div
         className={`
           hidden lg:block bg-orange-500 w-full px-4 py-2 transition-all duration-300 ease-in-out
           ${topBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}
@@ -106,12 +112,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center w-full md:max-w-screen-xl">
           {/* Logo and Branding */}
           <a href="/" className="flex cursor-pointer items-center">
-            <img 
-              src={navbarData.logoSrc} 
-              width={40} 
-              height={40} 
-              alt={navbarData.logoAlt} 
-              className="w-14 lg:w-16" 
+            <img
+              src={navbarData.logoSrc}
+              width={40}
+              height={40}
+              alt={navbarData.logoAlt}
+              className="w-14 lg:w-16"
             />
             <div className="flex flex-col ml-2">
               <span className="text-sm">IGIRE RWANDA</span>
@@ -122,7 +128,16 @@ export default function Navbar() {
           <div className="hidden lg:flex justify-center items-center space-x-12">
             {navbarData.links.map(({ label, href }, index) =>
               label !== "Contact" && (
-                <a key={index} href={href} className="text-gray-800 hover:text-orange-500 text-lg">
+                <a 
+                  key={index} 
+                  href={href} 
+                  className={`
+                    text-lg transition-all duration-300
+                    ${pathname === href 
+                      ? 'text-orange-500 font-bold border-b-4 border-orange-500' 
+                      : 'text-gray-800 hover:text-orange-500'}
+                  `}
+                >
                   {label}
                 </a>
               )
@@ -133,9 +148,25 @@ export default function Navbar() {
           <div className="lg:hidden flex items-center gap-8">
             <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-800 focus:outline-none">
               {menuOpen ? (
-                <MdClose size={24} />
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-6 w-6" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               ) : (
-                <MdMenu size={24} />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
               )}
             </button>
           </div>
@@ -144,19 +175,48 @@ export default function Navbar() {
           {menuOpen && (
             <div className="lg:hidden absolute top-20 left-0 right-0 bg-white shadow-md p-6">
               <div className="flex flex-col space-y-10">
-                {navbarData.links.map(({ label, href }, index) => (
-                  <a key={index} href={href} className="text-gray-600 font-medium flex justify-between items-center">
-                    {label}
-                  </a>
-                ))}
+                {navbarData.links.map(({ label, href }, index) => {
+                  // Exclude Contact from main menu items
+                  if (label === "Contact") return null;
+                  
+                  return (
+                    <a
+                      key={index}
+                      href={href}
+                      className={`
+                        font-medium flex justify-between items-center
+                        transition-all duration-300
+                        ${pathname === href ? 'text-orange-500 font-bold' : 'text-gray-600 hover:text-orange-500'}
+                      `}
+                    >
+                      {label}
+                    </a>
+                  );
+                })}
+                <a
+                  href="/contact"
+                  className={`
+                    px-6 py-3 font-bold
+                    ${pathname === '/contact' 
+                      ? 'bg-green-600 text-white' 
+                      : 'bg-green-800 hover:bg-green-600 text-white'}
+                  `}
+                >
+                  {navbarData.connectButtonText}
+                </a>
               </div>
             </div>
           )}
-          
+
           {/* Contact Us Button */}
-          <a 
-            href="/contact" 
-            className="bg-green-800 hover:bg-green-600 text-white hidden lg:flex px-6 py-3 font-bold"
+          <a
+            href="/contact"
+            className={`
+              hidden lg:flex px-6 py-3 font-bold
+              ${pathname === '/contact' 
+                ? 'bg-green-600 text-white' 
+                : 'bg-green-800 hover:bg-green-600 text-white'}
+            `}
           >
             {navbarData.connectButtonText}
           </a>

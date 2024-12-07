@@ -47,15 +47,14 @@ export default function Slideshow() {
   return (
     <div className="relative max-w-2xl mx-auto">
       <div
-        className="relative overflow-hidden rounded-lg shadow-lg"
+        className="relative overflow-hidden shadow-lg"
         style={{ aspectRatio: '16/9' }}
       >
         {slidesData.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === slideIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === slideIndex ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             {slide.type === 'video' ? (
               <video
@@ -69,7 +68,7 @@ export default function Slideshow() {
                   e.target.play();
                   handleMouseLeave();
                 }}
-                // autoPlay
+                autoPlay
                 muted
                 loop
               />
@@ -95,9 +94,8 @@ export default function Slideshow() {
         {slidesData.map((_, index) => (
           <span
             key={index}
-            className={`h-4 w-4 mx-1 rounded-full bg-gray-300 transition duration-300 ease-in-out ${
-              index === slideIndex ? 'bg-gray-700' : ''
-            }`}
+            className={`h-4 w-4 mx-1 rounded-full bg-gray-100 transition duration-300 ease-in-out ${index === slideIndex ? 'bg-orange-500' : ''
+              }`}
           ></span>
         ))}
       </div>
