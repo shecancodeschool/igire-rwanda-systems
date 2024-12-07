@@ -112,8 +112,8 @@ export const getArticleById = async (id) => {
 export const getArticleBySlug = async (slug) => {
     try {
         await connectMongo();
-        console.log(slug);
-        const article = await Article.findOne({ slug });
+        const article = await Article.findOne({ slug })
+            // .populate("author", "name");
         return JSON.stringify(article);
     } catch (e) {
         return {
