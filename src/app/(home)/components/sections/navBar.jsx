@@ -11,6 +11,7 @@ const navbarData = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Programs", href: "/programs" },
+    { label: "Careers", href: "/career" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" }
   ],

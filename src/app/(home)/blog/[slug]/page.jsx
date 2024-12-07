@@ -1,33 +1,88 @@
-import { getArticleBySlug } from "../../_actions/blogActions";
-import ArticleBanner from "../../components/ArticleBanner";
+import Image from "next/image";
+import { getArticleBySlug, getOnlyPublishedArticlesForBlog } from "../../_actions/blogActions";
 import parse from "html-react-parser";
+import Link from "next/link";
+import { Facebook, Linkedin, Mail, X } from "lucide-react";
 
-export default async function page({ params }) {
-    const slug = await params.slug;
-    const response = await getArticleBySlug(slug);
-    const article = JSON.parse(response);
+const page = async ({ params }) => {
+    const { slug } = await params;
+
+    var article= null;
+    var data = null;
+
+    const fetchedBlog = await getArticleBySlug(slug);
+    const response = await getOnlyPublishedArticlesForBlog(false, 3);
+
     
+    if (typeof fetchedBlog === "string") {
+        article= JSON.parse(fetchedBlog);
+    }
+    const author = article?.author;
+    if (typeof response === "string") {
+        data = JSON.parse(response);
+    }
+    
+    const recentBlogs = [];
+    for (let index = 0; index < data.articles.length; index++) {
+        if (index <= 5) {
+            recentBlogs.push(data.articles[index]);
+        }
+    }
+
+
     if (!article) {
-        return <h1>Article not found</h1>;
+        return (
+            <div>
+                <h1>Blog not found</h1>
+            </div>
+        )
     }
 
     return (
-        <div className="">
-            <ArticleBanner
-                title={article.title}
-                backgroundImage={article.image}
-            />
-            <section className="grid grid-cols-5 gap-5 sm:gap-7 md:gap-10 lg:gap-20 max-w-screen-xl mx-auto py-12 md:py-24 px-4">
-                <div id="description" className="blog-data col-span-5 md:col-span-3">
-                    {parse(article.content)}
-                </div>
-                <div id="side-bar" className="col-span-5 md:col-span-2 bg-orange-500 p-6 h-fit rounded-lg text-white">
-                    <h2 className="text-2xl font-bold mb-4">Quick Details</h2>
-                    <div className="flex flex-col gap-5 text-black">
-                    
+        <>
+            <section className="w-full flex flex-col bg-orange-100">
+                <div className="w-full flex flex-col justify-center items-start mx-auto max-w-screen-xl py-12 md:py-12 mt-20 md:mt-36 px-5 gap-10">
+                    <h1 className="text-3xl md:text-5xl text-cente w-full flex font-semibold">{article.title}</h1>
+                    <Image src={article.image} alt={article.title} width={1000} height={1000} className="w-full h-auto object-cover rounded-lg" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <p className="">{article.description}</p>
+                        <span className="justify-self-end">By Igire Rwanda Organization</span>
+                    </div>
+                    <div className="w-full flex justify-between items-center text-black">
+                        <time className="text-xl">{new Date(article.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+                        <ul className="flex gap-5">
+                            <li><Link className="hover:text-orange-400" href=""><Facebook size={28} /></Link></li>
+                            <span className="border-l-2 border-black" />
+                            <li><Link className="hover:text-orange-400" href=""><X size={28} /></Link></li>
+                            <span className="border-l-2 border-black" />
+                            <li><Link className="hover:text-orange-400" href=""><Linkedin size={28} /></Link></li>
+                            <span className="border-l-2 border-black" />
+                            <li><Link className="hover:text-orange-400" href=""><Mail size={28} /></Link></li>
+                        </ul>
                     </div>
                 </div>
             </section>
-        </div>
+            <section className="max-w-screen-xl mx-auto py-12 px-4">
+                <article id="description" className="blog-data w-full max-w-screen-md mx-auto">
+                    {parse(article.content)}
+                </article>
+            </section>
+            <section className="w-full flex flex-col bg-orange-100">
+                <div className="w-full flex flex-col justify-center items-start mx-auto max-w-screen-xl py-12 md:py-12 px-5 gap-10">
+                    <h2 className="text-2xl md:text-4xl text-cente w-full flex font-semibold">More Articles</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {recentBlogs.map((blog, index) => (
+                            <Link href={`/blog/${blog.slug}`} key={index} className="flex flex-col gap-5 ">
+                                <Image src={blog.image} alt={blog.title} width={500} height={500} className="w-full h-auto object-cover rounded-lg" />
+                                <h3 className="text-xl">{blog.title}</h3>
+                                {/* <p className="">{blog.description}</p> */}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
+
+export default page;
