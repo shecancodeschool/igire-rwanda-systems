@@ -147,6 +147,29 @@ export const getArticleBySlug = async (slug) => {
     }
 };
 
+export const getJobPostBySlug = async (slug) => {
+    try {
+        await connectMongo();
+
+        // Find the main article
+        const article = await Article.findOne({ 
+            slug, 
+            status: "Published", 
+            category: { $nin: ["archive"] } 
+        });
+
+        if (!article) {
+            return null;
+        }
+
+        return JSON.stringify({ article });
+    } catch (e) {
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+};
+
 export const getBlogPageArticles = async () => {
     try {
         await connectMongo();

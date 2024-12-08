@@ -11,7 +11,7 @@ export default function FeaturedStoryCard({ article }) {
             <div style={setBackground(article.image)} className="flex flex-col h-56 md:h-full">
                 <h2 className="text-white px-4 py-2 bg-orange-500 w-fit">Featured Story</h2>
             </div>
-            <div className="p-10 bg-orange-300">
+            <div className="p-5 md:p-10 bg-orange-300">
                 <h3 className="text-3xl font-bold mb-4 text-black">{article.title}</h3>
                 <p className="mb-4 text-black">
                     {truncateText(article.description, 30)}

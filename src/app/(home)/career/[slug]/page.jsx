@@ -1,141 +1,215 @@
-import CareerPageData from "@/fakeDatas/CareerPageData";
-import DefaultBanner from "../../components/DefaultBanner";
-import jobs from "@/fakeDatas/JobsData";
+import Image from "next/image";
+import { getJobPostBySlug } from "../../_actions/blogActions";
+import parse from "html-react-parser";
+import Link from "next/link";
+import { Facebook, Linkedin, Mail, X } from "lucide-react";
+import BlogCard from "../../components/BlogCard";
 
-export default async function page({ params }) {
-    const slug = await params.slug;
-    console.log(slug);
-    const { bannerData } = CareerPageData;
-    const job = jobs.find(job => job.slug === slug);
+// Dynamic metadata generation function
+export async function generateMetadata({ params }) {
+    const { slug } = await params;
 
-    if (!job) {
-        return <h1>Job not found</h1>;
+    try {
+        const fetchedBlog = await getJobPostBySlug(slug);
+        const articleData = typeof fetchedBlog === 'string' 
+            ? JSON.parse(fetchedBlog) 
+            : fetchedBlog;
+
+        if (!articleData || !articleData.article) {
+            return {
+                title: "Article Not Found - Igire Rwanda Organization",
+                description: "The requested article could not be found.",
+            };
+        }
+
+        const article = articleData.article;
+
+        return {
+            title: `${article.title} - Igire Rwanda Organization`,
+            description: article.description || "Igire Rwanda Organization Blog",
+            keywords: article.tags?.join(", ") || "Igire Rwanda, Blog, Article",
+            openGraph: {
+                title: article.title,
+                description: article.description || "Igire Rwanda Organization Blog",
+                url: `https://www.igirerwanda.org/blog/${slug}`,
+                siteName: "Igire Rwanda Organization",
+                images: article.image ? [{
+                    url: article.image,
+                    width: 800,
+                    height: 600,
+                }] : [],
+                locale: "en-US",
+                type: "article",
+            },
+        };
+    } catch (error) {
+        console.error("Error generating metadata:", error);
+        return {
+            title: "Error - Igire Rwanda Organization",
+            description: "An error occurred while loading the article.",
+        };
+    }
+}
+
+const Page = async ({ params }) => {
+    const { slug } = params;
+
+    // Parse the result from the server action
+    let articleData = null;
+    try {
+        const fetchedBlog = await getArticleBySlug(slug);
+
+        // Check if fetchedBlog is a string (JSON) or has an error
+        if (typeof fetchedBlog === 'string') {
+            articleData = JSON.parse(fetchedBlog);
+        } else if (fetchedBlog && 'error' in fetchedBlog) {
+            throw new Error(fetchedBlog.error);
+        }
+    } catch (error) {
+        console.error("Error fetching article:", error);
+        return (
+            <div className="w-full text-center py-20">
+                <h1 className="text-2xl font-bold">Error Loading Article</h1>
+                <p>Unable to retrieve the requested article.</p>
+            </div>
+        );
     }
 
+    // If no article found
+    if (!articleData || !articleData.article) {
+        return (
+            <div className="w-full text-center py-20">
+                <h1 className="text-2xl font-bold">Article Not Found</h1>
+                <p>The article you are looking for does not exist.</p>
+            </div>
+        );
+    }
+
+    const { article } = articleData;
+
+    // Dynamic JSON-LD generation
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "description": article.description,
+        "author": {
+            "@type": "Person",
+            "name": article.author?.name || "Igire Rwanda Organization"
+        },
+        "datePublished": article.createdAt,
+        "image": article.image,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Igire Rwanda Organization",
+            "url": "https://www.igirerwanda.org/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "/Igire_Rwanda_Logo.png"
+            },
+            "sameAs": [
+                "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+                "https://www.facebook.com/igirerwandaorganization",
+                "https://www.instagram.com/shecancode_bootcamp",
+                "https://twitter.com/ShecancodeRW"
+            ]
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://www.igirerwanda.org/career/${slug}`
+        }
+    };
+
     return (
-        <div className="">
-            <DefaultBanner
-                title={job.title}
-                backgroundImage={bannerData.backgroundImage}
+        <>
+            <script 
+                type="application/ld+json" 
+                dangerouslySetInnerHTML={{ 
+                    __html: JSON.stringify(jsonLd) 
+                }} 
             />
-            <section className="grid grid-cols-5 gap-5 sm:gap-7 md:gap-10 lg:gap-20 max-w-screen-xl mx-auto py-12 md:py-24 px-4">
-                <div id="description" className="blog-data col-span-5 md:col-span-3">
-                    <p><strong>Igire Rwanda Organization</strong> is dedicated to empowering young girls and women, providing them with the skills, resources, and support they need to thrive. Through education, mentorship, and hands-on training programs, Igire Rwanda helps these women unlock their potential, fostering their confidence and capabilities to lead in their communities. By offering opportunities in areas like entrepreneurship, technology, and leadership, the organization accelerates their journey toward economic independence and personal growth.</p>
-                    <p>At Igire Rwanda, we believe that empowered women are key to building a brighter, more inclusive future for all.</p>
+            
+            {/* Rest of the component remains the same */}
+            <section className="w-full flex flex-col bg-orange-100">
+                <div className="w-full flex flex-col justify-center items-start mx-auto max-w-screen-xl py-12 md:py-12 mt-20 md:mt-36 px-5 gap-10">
+                    <h1 className="text-3xl md:text-5xl text-center w-full flex font-semibold">{article.title}</h1>
 
-                    <h2>SheCanCODE Bootcamp</h2>
-                    <p>The <strong>SheCanCODE Bootcamp</strong>, one of Igire Rwanda Organization's programs, focuses on providing hands-on software development training to prepare learners for successful careers in technology. SheCanCODE is committed to educating women and ensuring they have pathways to employment after the program.</p>
-                    <p>SheCanCODE offers an immersive 16-week training program, expertly led by seasoned professionals in software engineering. The curriculum provides a robust foundation in coding fundamentals, followed by specialized tracks in either backend development, frontend development, or DevOps. This flexible approach allows participants to tailor their learning to match their passions and strengths.</p>
-                    <p>Beyond technical expertise, the program also delivers comprehensive training in vital professional skills such as communication, problem-solving, and career readiness, ensuring that graduates are fully equipped to thrive in dynamic, fast-paced work environments. A dedicated career team further supports graduates in securing job opportunities within Rwanda and beyond.</p>
+                    <Image
+                        src={article.image}
+                        alt={article.title}
+                        width={1000}
+                        height={1000}
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                    />
 
-                    <h2>Join Our Team as a Frontend Facilitator</h2>
-                    <p>We are seeking a passionate <strong>Frontend Facilitator</strong> to join our team. The ideal candidate will not only have strong technical skills in software development but also a genuine enthusiasm for teaching and curriculum development.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <p>{article.description}</p>
+                        <span className="justify-self-end">
+                            By {article.author?.name || 'Igire Rwanda Organization'}
+                        </span>
+                    </div>
 
-                    <h3>Key Responsibilities</h3>
-                    <ul>
-                        <li><span class='highlight'>Curriculum Development & Training</span>
-                            <ul>
-                                <li>Design and implement comprehensive training curricula aligned with current industry standards.</li>
-                                <li>Facilitate engaging, hands-on training sessions for learners.</li>
-                                <li>Develop and administer programming assessments for training modules.</li>
-                                <li>Create and update training materials for both in-person and online classes.</li>
-                                <li>Provide individualized support to learners and foster a positive learning environment.</li>
-                                <li>Collect and analyze learner feedback to improve training programs.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Software Development</span>
-                            <ul>
-                                <li>Contribute to the development of internal software systems for IGIRE Rwanda.</li>
-                                <li>Collaborate on software projects for IGIRE Rwanda's partners and stakeholders.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Mentorship & Team Development</span>
-                            <ul>
-                                <li>Train and empower junior facilitators to enhance their technical and soft skills.</li>
-                                <li>Provide mentorship and guidance to ensure a collaborative team environment.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Graduate Career Readiness</span>
-                            <ul>
-                                <li>Develop curricula to prepare learners for seamless entry into the job market.</li>
-                                <li>Oversee soft skills development workshops and practices for career readiness.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Diversity & Inclusion</span>
-                            <ul>
-                                <li>Promote a welcoming and inclusive learning atmosphere for learners from diverse backgrounds.</li>
-                                <li>Foster equitable access and opportunities within training programs.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Administrative & Reporting</span>
-                            <ul>
-                                <li>Prepare detailed reports on training outcomes and program effectiveness for the academic manager and executive teams.</li>
-                                <li>Maintain accurate records of learners’ performance and attendance.</li>
-                            </ul>
-                        </li>
-                        <li><span class='highlight'>Community Engagement</span>
-                            <ul>
-                                <li>Host workshops, events, and academic sessions to promote technology and innovation.</li>
-                                <li>Build partnerships and promote collaboration to enhance learners’ academic and career success.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <div className="w-full flex justify-between flex-wrap gap-5 md:gap-0 items-center text-black">
+                        <time className="text-xl">
+                            {new Date(article.createdAt).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric"
+                            })}
+                        </time>
 
-                    <h3>Qualifications & Skills</h3>
-                    <ul>
-                        <li>Frontend Development: Proficiency in HTML, CSS, JavaScript, and modern frameworks like React, Vue.js, or Next.js.</li>
-                        <li>Full-Stack Development: Basic experience working on full-stack applications using Node.js and JavaScript frameworks, especially Next.js.</li>
-                        <li>Version Control: Extensive experience with Git and platforms like GitHub or GitLab for collaboration and version management.</li>
-                        <li>DevOps Knowledge: Familiarity with CI/CD pipelines, Docker, cloud services (e.g., AWS, Azure, or GCP), and deployment strategies.</li>
-                        <li>UI/UX Design: Competence in using design tools like Figma to translate concepts into wireframes, prototypes, and design systems.</li>
-                        <li>Project Management: Experience with tools like Jira, Asana, or Trello to manage tasks, track progress, and ensure timely project delivery.</li>
-                        <li>Curriculum Development: Ability to create and update comprehensive training materials that align with industry standards.</li>
-                        <li>Team Collaboration: Experience mentoring and collaborating with cross-functional teams, including junior developers and designers.</li>
-                        <li>Problem Solving: Demonstrated ability to troubleshoot and resolve complex software issues efficiently.</li>
-                        <li>Communication Skills: Excellent verbal and written communication for delivering training and preparing documentation.</li>
-                        <li>Diverse Tech Stack: Familiarity with modern software tools and technologies that support high-quality project development and learner success.</li>
-                        <li>Passion for Learning: Commitment to staying updated with the latest trends and advancements in technology and education.</li>
-                    </ul>
-
-                    <h3>Why Join IGIRE Rwanda Organization?</h3>
-                    <ul>
-                        <li>Make a meaningful impact on the lives of learners and contribute to national development.</li>
-                        <li>Collaborate with a dynamic team passionate about technology and education.</li>
-                        <li>Opportunities for professional growth and development.</li>
-                        <li>Be part of a supportive and inclusive community committed to innovation and excellence.</li>
-                    </ul>
-
-                    <p><strong>Application deadline:</strong> [Insert Date
-                        ]</p>
-                    <p><strong>How to Apply:</strong> Please send your CV, cover letter, and portfolio to <a href='mailto:hr@igirerwanda.org' class='apply-link'>hr@igirerwanda.org</a> with a copy (CC) to <a href='mailto:education@igirerwanda.org' class='apply-link'>education@igirerwanda.org</a> with the subject line <strong>Frontend Facilitator Application</strong>.</p>
-                    <p><em>IGIRE Rwanda Organization is an equal-opportunity employer. We encourage individuals from all backgrounds to apply.</em></p>
-                </div>
-                <div id="side-bar" className="col-span-5 md:col-span-2 bg-orange-300 p-6 h-fit rounded-lg text-white">
-                    <h2 className="text-2xl font-bold mb-4">Quick Details</h2>
-                    <div className="flex flex-col gap-5 text-black">
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Job Title</strong>
-                            <span className="col-span-2">{job.title}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Location</strong>
-                            <span className="col-span-2">{job.location}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Job Type</strong>
-                            <span className="col-span-2">{job.jobType}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Positions</strong>
-                            <span className="col-span-2">{job.openPositions}</span>
-                        </p>
-                        <p className="grid grid-cols-3">
-                            <strong className="col-span-1">Deadline</strong>
-                            <span className="col-span-2">{new Date(job.deadline).toUTCString().slice(0, 16)} - 11:59</span>
-                        </p>
+                        <ul className="flex gap-5">
+                            <li>
+                                <Link
+                                    className="hover:text-orange-400"
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+                                    target="_blank"
+                                >
+                                    <Facebook size={28} />
+                                </Link>
+                            </li>
+                            <span className="border-l-2 border-black" />
+                            <li>
+                                <Link
+                                    className="hover:text-orange-400"
+                                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent(article.title)}`}
+                                    target="_blank"
+                                >
+                                    <X size={28} />
+                                </Link>
+                            </li>
+                            <span className="border-l-2 border-black" />
+                            <li>
+                                <Link
+                                    className="hover:text-orange-400"
+                                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&title=${encodeURIComponent(article.title)}`}
+                                    target="_blank"
+                                >
+                                    <Linkedin size={28} />
+                                </Link>
+                            </li>
+                            <span className="border-l-2 border-black" />
+                            <li>
+                                <Link
+                                    className="hover:text-orange-400"
+                                    href={`mailto:?subject=${encodeURIComponent(article.title)}&body=${encodeURIComponent(`Check out this article: ${typeof window !== 'undefined' ? window.location.href : ''}`)}`}
+                                >
+                                    <Mail size={28} />
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
-        </div>
-    )
-}
+
+            <section className="max-w-screen-xl mx-auto py-12 px-4">
+                <article id="description" className="blog-data w-full max-w-screen-md mx-auto">
+                    {parse(article.content)}
+                </article>
+            </section>
+        </>
+    );
+};
+
+export default Page;

@@ -1,17 +1,76 @@
 import DefaultBanner from "../components/DefaultBanner";
-import CareerPageData from "@/fakeDatas/CareerPageData";
 import Image from "next/image";
 import Solution from "../components/sections/Solution";
-import jobs from "@/fakeDatas/JobsData";
 import Link from "next/link";
+import { getArticlesByCategory } from "../_actions/blogActions";
+import BlogCard from "../components/BlogCard";
 
-export default function page() {
-  const { bannerData } = CareerPageData;
+export const metadata = {
+  title: "Careers - Igire Rwanda Organization",
+  description: "Careers at Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+  keywords: "Careers, Open Positions, Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
+  openGraph: {
+    title: "Careers at Igire Rwanda Organization",
+    description: "Open Positions at Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+    url: "https://www.igirerwanda.org",
+    siteName: "Igire Rwanda Organization",
+    images: [
+      {
+        url: "scc15.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  }
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "name": "Careers at Igire Rwanda Organization",
+  "url": "https://www.igirerwanda.org",
+  "description": "Open Positions at Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+  "image": "/scc15.jpg",
+  "author": {
+    "@type": "Organisation",
+    "name": "Igire Rwanda Organization",
+    "url": "https://www.igirerwanda.org/",
+    "image": "/scc15.jpg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+      "https://www.facebook.com/igirerwandaorganization",
+      "https://www.instagram.com/shecancode_bootcamp",
+      "https://twitter.com/ShecancodeRW"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.igirerwanda.org/career`
+  }
+}
+
+export default async function page() {
+  var jobs = [];
+
+  const response = await getArticlesByCategory("careers");
+
+  if (typeof response === 'string') {
+    const articles = JSON.parse(response);
+    jobs = articles;
+  } else if (response && 'error' in response) {
+    throw new Error(response.error);
+  }
+
   const AboutIgireRwandaTeam = {
     description: "Igire Rwanda Organization is dedicated to empowering young girls and women, providing them with the skills, resources, and support they need to thrive. Through education, mentorship, and hands-on training programs, Igire Rwanda helps these women unlock their potential, fostering their confidence and capabilities to lead in their communities."
   }
+
   return (
     <div className="">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <DefaultBanner
         title={"Careers"}
         backgroundImage={"scc1.jpeg"}
@@ -50,16 +109,9 @@ export default function page() {
         <div className="flex flex-col max-w-screen-xl w-full px-4 gap-10 md:gap-20 py-12 md:py-24 mx-auto items-center justify-center">
           <h2 className="text-4xl font-bold">Available Positions</h2>
           {jobs.length === 0 && <p className="text-center">No open positions available</p>}
-          <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
+          <div className="grid w-full grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
             {jobs.length > 0 && jobs.map((job, index) => (
-              <Link href={`/career/${job.slug}`} key={index} className="flex flex-col gap-5 bg-white p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold">{job.title}</h2>
-                <div className="flex flex-wrap gap-4 items-center">
-                  <span className="text-sm px-3 py-1 rounded-full bg-gray-200 text-black">{job.location}</span>
-                  <span className="text-sm px-3 py-1 rounded-full bg-green-300 text-black">{job.jobType}</span>
-                  <span className="text-sm px-3 py-1 rounded-full bg-orange-200 text-black">{job.openPositions} position{job.openPositions > 1 && "s"}</span>
-                </div>
-              </Link>
+              <BlogCard key={index} article={job} />
             ))}
           </div>
         </div>

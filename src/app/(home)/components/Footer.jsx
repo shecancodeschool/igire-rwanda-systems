@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className='grid grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-xl w-full px-4 lg:px-0 gap-5 md:gap-20'>
                     <div className='flex flex-col gap-4'>
                         <h3 className='text-3xl font-bold'>Sign up for updates</h3>
-                        <p>To receive updates from International Alert, including about our latest toolkits, reports, campaigns and webinars, and examples of how peacebuilders are making real change in their communities, please enter your details.</p>
+                        <p>To receive updates from Igire Rwanda Organization, including our latest news, open positions, projects, and events, please enter your details.</p>
                     </div>
                     <form className='flex flex-col gap-4'>
                         <div className='flex gap-4 flex-wrap md:flex-nowrap justify-end'>
