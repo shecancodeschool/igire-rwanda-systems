@@ -40,7 +40,7 @@ const Testimonials = ({ testimonialsData }) => {
   return (
     <section className="font-ibm bg-orange-50">
       <div className='py-12 md:py-24 max-w-screen-2xl mx-auto px-4 relative '>
-        <h2 className="text-4xl text-center font-bold mb-14 text-black">What Our Alumni Say</h2>
+        <h2 className="text-4xl text-center font-bold mb-14 text-black">What Our Partners and Alumni Say</h2>
         <div className="relative">
           <div className="hs-carousel w-full overflow-hidden rounded-lg">
             <div className="relative min-h-72">

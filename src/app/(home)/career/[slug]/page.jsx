@@ -110,7 +110,7 @@ export default async function page({ params }) {
                     <p><strong>How to Apply:</strong> Please send your CV, cover letter, and portfolio to <a href='mailto:hr@igirerwanda.org' class='apply-link'>hr@igirerwanda.org</a> with a copy (CC) to <a href='mailto:education@igirerwanda.org' class='apply-link'>education@igirerwanda.org</a> with the subject line <strong>Frontend Facilitator Application</strong>.</p>
                     <p><em>IGIRE Rwanda Organization is an equal-opportunity employer. We encourage individuals from all backgrounds to apply.</em></p>
                 </div>
-                <div id="side-bar" className="col-span-5 md:col-span-2 bg-orange-500 p-6 h-fit rounded-lg text-white">
+                <div id="side-bar" className="col-span-5 md:col-span-2 bg-orange-300 p-6 h-fit rounded-lg text-white">
                     <h2 className="text-2xl font-bold mb-4">Quick Details</h2>
                     <div className="flex flex-col gap-5 text-black">
                         <p className="grid grid-cols-3">

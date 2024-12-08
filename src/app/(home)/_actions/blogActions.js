@@ -84,18 +84,6 @@ export const getArticlesByCategory = async (slug) => {
     }
 }
 
-export const getFeaturedArticle = async () => {
-    try {
-        await connectMongo();
-        const article = await Article.findOne({ isFeatured: true, status: "Published", allowedForBlog: true }).sort({ createdAt: -1 });
-        return JSON.stringify(article);
-    } catch (e) {
-        return {
-            error: getErrorMessage(e)
-        }
-    }
-}
-
 export const getArticleById = async (id) => {
     try {
         await connectMongo();
@@ -112,12 +100,100 @@ export const getArticleById = async (id) => {
 export const getArticleBySlug = async (slug) => {
     try {
         await connectMongo();
-        const article = await Article.findOne({ slug })
-            // .populate("author", "name");
-        return JSON.stringify(article);
+
+        // Find the main article
+        const article = await Article.findOne({ 
+            slug, 
+            status: "Published", 
+            allowedForBlog: true 
+        });
+
+        if (!article) {
+            return null;
+        }
+
+        // Calculate the date range (e.g., within 3 months before and after)
+        const articleDate = new Date(article.createdAt);
+        const threeMonthsBefore = new Date(articleDate);
+        threeMonthsBefore.setMonth(articleDate.getMonth() - 3);
+        
+        const threeMonthsAfter = new Date(articleDate);
+        threeMonthsAfter.setMonth(articleDate.getMonth() + 3);
+
+        // Find 3 related articles
+        const relatedArticles = await Article.find({
+            _id: { $ne: article._id }, // Exclude the current article
+            status: "Published",
+            allowedForBlog: true,
+            category: { 
+                $nin: ["on-boarding", "archive"] 
+            },
+            createdAt: {
+                $gte: threeMonthsBefore,
+                $lte: threeMonthsAfter
+            }
+        })
+        .sort({ createdAt: -1 }) // Sort by most recent
+        .limit(3);
+
+        return JSON.stringify({
+            article,
+            relatedArticles
+        });
     } catch (e) {
         return {
             error: getErrorMessage(e)
         }
     }
-}
+};
+
+export const getBlogPageArticles = async () => {
+    try {
+        await connectMongo();
+
+        // 1. Find the featured article
+        const featuredStory = await Article.findOne({ 
+            status: "Published", 
+            allowedForBlog: true, 
+            isFeatured: true,
+            category: { 
+                $nin: ["on-boarding", "archive"] 
+            },
+        });
+
+        // 2. Find the 3 latest articles
+        const latestStories = await Article.find({ 
+            status: "Published", 
+            allowedForBlog: true,
+            isFeatured: false,
+            category: { 
+                $nin: ["on-boarding", "archive"] 
+            }, 
+        }).sort({ createdAt: -1 }).limit(3);
+
+        // 3. Find 3 latest Community Initiatives articles
+        const communityInitiatives = await Article.find({ 
+            status: "Published", 
+            allowedForBlog: true,
+            category: "Community Initiatives" 
+        }).sort({ createdAt: -1 }).limit(3);
+
+        // 4. Find 3 latest Testimonials articles
+        const testimonials = await Article.find({ 
+            status: "Published", 
+            allowedForBlog: true,
+            category: "Testimonials" 
+        }).sort({ createdAt: -1 }).limit(3);
+
+        return JSON.stringify({
+            featuredStory,
+            latestStories,
+            communityInitiatives,
+            testimonials
+        });
+    } catch (e) {
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+};

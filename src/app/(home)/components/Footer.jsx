@@ -14,7 +14,7 @@ const Footer = () => {
                     </div>
                     <form className='flex flex-col gap-4'>
                         <div className='flex gap-4 flex-wrap md:flex-nowrap justify-end'>
-                            <input type="text" placeholder='Email address' className='w-full px-4 py-2' />
+                            <input type="text" placeholder='Email address' className='w-full px-4 py-2 text-black' />
                             <button className='bg-green-800 font-bold tracking-widest w-full md:w-fit text-white px-4 py-2'>Subscribe</button>
                         </div>
                         <p>
