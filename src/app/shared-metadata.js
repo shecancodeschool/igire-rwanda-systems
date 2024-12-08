@@ -1,0 +1,1 @@
+export const openGraphImage = { images: ['/scc15.jpg'] }

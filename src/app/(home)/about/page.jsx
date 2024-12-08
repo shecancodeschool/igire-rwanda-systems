@@ -7,11 +7,57 @@ import HomePageFakes from "@/fakeDatas/HomePageFakes";
 import Solution from "../components/sections/Solution";
 import HomePageData from "@/fakeDatas/HomePageFakes";
 
+export const metadata = {
+  title: "About - Igire Rwanda Organization",
+  description: "About Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+  keywords: "About Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
+  openGraph: {
+    title: "About - Igire Rwanda Organization",
+    description: "About Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+    url: "https://www.igirerwanda.org",
+    siteName: "Igire Rwanda Organization",
+    images: [
+      {
+        url: "scc15.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  }
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "About - Igire Rwanda Organization",
+  "url": "https://www.igirerwanda.org",
+  "description": "About Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+  "image": "/scc15.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Igire Rwanda Organization",
+    "url": "https://www.igirerwanda.org/",
+    "image": "/scc15.jpg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+      "https://www.facebook.com/igirerwandaorganization",
+      "https://www.instagram.com/shecancode_bootcamp",
+      "https://twitter.com/ShecancodeRW"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.igirerwanda.org/about`
+  }
+}
 const AboutPage = () => {
-  const { bannerData, topSection, programs, logos } = AboutPageFakes;
+  const { bannerData } = AboutPageFakes;
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Banner Section */}
       <div>
         <DefaultBanner
