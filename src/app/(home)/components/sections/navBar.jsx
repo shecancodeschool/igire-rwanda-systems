@@ -135,7 +135,7 @@ export default function Navbar() {
                   className={`
                     text-lg transition-all duration-300
                     ${pathname === href 
-                      ? 'text-orange-500 font-bold border-b-4 border-orange-500' 
+                      ? 'text-orange-500 font-bold' 
                       : 'text-gray-800 hover:text-orange-500'}
                   `}
                 >
