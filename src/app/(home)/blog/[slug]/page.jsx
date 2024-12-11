@@ -160,6 +160,9 @@ const Page = async ({ params }) => {
                         </time>
 
                         <ul className="flex gap-5">
+                            <li className="font-bold text-xl text-orange-600">
+                                Share
+                            </li>
                             <li>
                                 <Link
                                     className="hover:text-orange-400"
