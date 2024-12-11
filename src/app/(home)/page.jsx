@@ -6,9 +6,9 @@ import OurPrograms from "./components/sections/OurPrograms";
 import ImpactSection from "./components/sections/ImpactSection";
 import HistoricalBackground from "./components/sections/historicalBackground";
 import Testimonials from './components/sections/Testimonials';
-import AboutPageFakes from "@/fakeDatas/AboutPageFakes";
 import SlidingBanner from "./components/sections/SlidingBanner";
 import FeaturedStories from "./components/sections/FeaturedStories";
+import { getMostRecentTestimonials } from "./_actions/blogActions";
 
 export const metadata = {
   title: "Home - Igire Rwanda Organization",
@@ -56,7 +56,9 @@ const jsonLd = {
   }
 }
 
-export default function Home() {
+export default async function Home() {
+  const res = await getMostRecentTestimonials();
+  const testimonialsData = JSON.parse(res);
 
   return (
     <>
@@ -68,7 +70,7 @@ export default function Home() {
         <OurPrograms />
         <HistoricalBackground HistoryBgData={HomePageData.HistoryBgData} />
         <ImpactSection ImpactData={HomePageData.ImpactData} />
-        <Testimonials testimonialsData={AboutPageFakes.testimonialsData} />
+        {testimonialsData.length > 0 && <Testimonials testimonialsData={testimonialsData} />}
         <FeaturedStories />
         <CallForAction CallForActionData={HomePageData.CallForActionData} />
         <Partners PartnersData={HomePageData.PartnersData} />
