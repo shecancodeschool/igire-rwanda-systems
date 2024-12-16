@@ -2,6 +2,8 @@ import "@/globals.css";
 import { imb } from "@/utils/fonts";
 import Footer from "./components/Footer";
 import Navbar from "./components/sections/navBar";
+import ProgressBarProvider from "../ProgressBarProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: {
@@ -17,11 +19,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${imb}`}>
+        <ProgressBarProvider>
         <Navbar />
         <main>
           {children}
         </main>
         <Footer />
+        </ProgressBarProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

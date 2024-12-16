@@ -8,9 +8,9 @@ import Solution from "../components/sections/Solution";
 import HomePageData from "@/fakeDatas/HomePageFakes";
 
 export const metadata = {
-  title: "About - Igire Rwanda Organization",
+  title: "About",
   description: "About Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
-  keywords: "About Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
+  keywords: "About Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, women training bootcamps near me, women training bootcamps in Rwanda, women in tech, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
   openGraph: {
     title: "About - Igire Rwanda Organization",
     description: "About Igire Rwanda Organization - Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",

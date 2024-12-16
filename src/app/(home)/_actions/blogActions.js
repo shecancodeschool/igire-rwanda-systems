@@ -66,12 +66,22 @@ export const getOnlyPublishedArticlesForBlog = async (includeFeatured, limit = 5
 
 export const getArticlesByCategory = async (slug) => {
     try {
+        var articles = [];
         await connectMongo();
+        if (!slug) {
+            articles = await Article.find({ status: "Published", allowedForBlog: true, category: { $nin: ["archive", "on-boarding"] } }).sort({ createdAt: -1 });
+        }
+
         const category = await ArticleCategory.findOne({ slug });
         if (!category) {
             return [];
         }
-        const articles = await Article.find({ category: category?.name, status: "Published", allowedForBlog: true }).sort({ createdAt: -1 });
+        articles = await Article.find({ 
+            category: category?.name, 
+            status: "Published", 
+            allowedForBlog: true
+        })
+        .sort({ createdAt: -1 });
         if (articles.length === 0) {
             console.log("No articles");
             return [];
