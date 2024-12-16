@@ -2,12 +2,12 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import DefaultBanner from "../components/DefaultBanner";
 
 export const metadata = {
-  title: "Contact Us - Igire Rwanda Organization",
+  title: "Contact Us",
   description: "Contact Us. Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
-  keywords: "Contact Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
+  keywords: "Contact Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, Women training bootcamps near me, women training bootcamps in Rwanda, women in tech, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
   openGraph: {
-    title: "Contact Us - Igire Rwanda Organization",
-    description: "Stories, Updates and News about Igire Rwanda Organization. Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
+    title: "Contact Us",
+    description: "Contact Igire Rwanda Organization.",
     url: "https://www.igirerwanda.org",
     siteName: "Igire Rwanda Organization",
     images: [

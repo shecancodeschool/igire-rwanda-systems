@@ -18,9 +18,9 @@ const Partners = ({ PartnersData }) => {
               key={index}
               src={`${logo.src}`}
               alt={logo.alt}
-              className="w-fit h-12 mx-auto"
-              width={100}
-              height={100}
+              className="w-fit h-16 mx-auto"
+              width={400}
+              height={200}
             />
           ))}
       </div>

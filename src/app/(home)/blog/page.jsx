@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Blog - Igire Rwanda Organization",
+  title: "Blog",
   description: "Stories, Updates and News about Igire Rwanda Organization. Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
-  keywords: "News, Updates, Stories, Articles, Media Coverage, About Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
+  keywords: "News, Updates, Stories, Articles, Media Coverage, women training bootcamps near me, women training bootcamps in Rwanda, women in tech, About Igire Rwanda Organization, Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
   openGraph: {
     title: "Blog - Igire Rwanda Organization",
     description: "Stories, Updates and News about Igire Rwanda Organization. Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
