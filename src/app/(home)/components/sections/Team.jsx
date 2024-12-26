@@ -14,25 +14,31 @@ export default function Team({ teamData }) {
 
       <div className="flex max-w-screen-xl mx-auto justify-center">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-[90rem]">
-          {founders.map((founder, index) => (
-            <div key={index} className="text-center">
-              <Image
-                src={founder.image}
-                width={150}
-                height={150}
-                alt={`${founder.name}'s photo`}
-                className="w-48 h-48 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-lg mx-auto mb-4 object-cover border"
-              />
-              <h3 className="text-xl sm:text-2xl font-semibold">
-                {founder.name}
-              </h3>
-              <p className="text-md sm:text-lg font-medium text-gray-600">
-                {founder.position.toUpperCase()}
-              </p>
-            </div>
+          {founders.map((member, index) => (
+            <TeamMemberCard key={index} member={member} />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const TeamMemberCard = ({ member }) => {
+  const { name, position, image, description } = member;
+  return (
+    <div className="flex flex-col items-center">
+      <div className="w-40 h-40 rounded-full overflow-hidden mb-3">
+        <Image
+          src={image}
+          alt={name}
+          width={160}
+          height={160}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="text-lg font-bold mb-1">{name}</h3>
+      <p className="text-sm text-gray-500 mb-2">{position}</p>
+      <p className="text-sm text-gray-500">{description}</p>
+    </div>
   );
 };
