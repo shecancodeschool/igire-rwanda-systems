@@ -1,13 +1,11 @@
 "use client";
 
-// import { useAppDispatch, useAppSelector } from "@/app/redux";
-// import { setIsSidebarCollapsed } from "@/state";
 import { Menu, LayoutDashboard, User, Clipboard, SlidersHorizontal, CircleDollarSign, Archive } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import logo from "@/favicon.ico"
+import logo from "../../../../public/Igire_Rwanda_Logo.png"
 
 const SidebarLink = ({
   href,

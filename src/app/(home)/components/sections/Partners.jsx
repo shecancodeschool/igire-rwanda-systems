@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const Partners = ({ PartnersData }) => {
-  const { title, description, companies } = PartnersData;
+  const { description, companies } = PartnersData;
   return (
     <div className="flex flex-col gap-10 justify-center items-center font-ibm py-12 md:py-24">
       <div className="max-w-screen-xl flex flex-col items-center justify-center gap-5 px-4">

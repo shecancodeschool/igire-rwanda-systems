@@ -1,8 +1,8 @@
-export const setBackground = (backgroundImage) => {
+export const setBackground = (backgroundImage, backgroundPosition) => {
     const backgroundImageStyles = {
-      backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
+      background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
       backgroundSize: 'cover',
-      backgroundPosition: 'center',
+      backgroundPosition: backgroundPosition || 'center',
       transition: 'background-image 0.3s ease-in-out',
       willChange: 'background-image',
     }
