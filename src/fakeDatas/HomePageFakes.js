@@ -20,6 +20,7 @@ const HomePageData = {
             { src: '/Embassy-of-Israel-2.jpeg', alt: 'Embassy of ISRAEL' },
             { src: '/UN-Women-logo-blue-en.svg', alt: 'UN Women' },
             { src: '/dot-rwanda-logo.svg', alt: 'Dot Rwanda' },
+            { src: '/solvit_africa_logo.jpeg', alt: 'Dot Rwanda' },
             { src: '/umurava2.png', alt: 'Umurava logo' },
             { src: '/KLab-Logo.jpg', alt: 'KLab' },
             { src: '/intango-tss-logo.png', alt: 'Intango TSS' },

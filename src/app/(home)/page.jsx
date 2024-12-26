@@ -11,11 +11,11 @@ import FeaturedStories from "./components/sections/FeaturedStories";
 import { getMostRecentTestimonials } from "./_actions/blogActions";
 
 export const metadata = {
-  title: "Home",
+  title: "Home - Welcome to Igire Rwanda Organization",
   description: "Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
   keywords: "Igire Rwanda Organization, AWE, Academy for Women Entrepreneurs, women training bootcamps near me, women training bootcamps in Rwanda, women in tech, IRO, SheCanCODE Bootcamp, SheCanCODE, Igire Rwanda, Women Empowerment, Women Empowerment in Rwanda, Rwanda, Digital Literacy, Entrepreneurship, Gender Gaps, Gender Gap, Empowering young women",
   openGraph: {
-    title: "Igire Rwanda Organization",
+    title: "Home - Welcome to Igire Rwanda Organization",
     description: "Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
     url: "https://www.igirerwanda.org",
     siteName: "Igire Rwanda Organization",
@@ -34,7 +34,7 @@ export const metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Home - Igire Rwanda Organization",
+  "name": "Home - Welcome to Igire Rwanda Organization",
   "url": "https://www.igirerwanda.org",
   "description": "Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
   "image": "/scc15.jpg",
@@ -57,8 +57,8 @@ const jsonLd = {
 }
 
 export default async function Home() {
-  const res = await getMostRecentTestimonials();
-  const testimonialsData = JSON.parse(res);
+  const response = await getMostRecentTestimonials();
+  const testimonialsData = typeof response === 'string' ? JSON.parse(response) : [];
 
   return (
     <>

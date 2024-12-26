@@ -4,6 +4,7 @@ import FeaturedStoryCard from "../components/FeaturedStoryCard";
 import { getBlogPageArticles } from "../_actions/blogActions";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import TestimonialCard from "../components/TestimonialCard";
 
 export const metadata = {
   title: "Blog",
@@ -123,7 +124,7 @@ export default async function page() {
           </div>
           {testimonials.length <= 0 && <p>No Stories Found</p>}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {testimonials.length > 0 && testimonials.map((story, index) => <BlogCard key={index} article={story} />)}
+            {testimonials.length > 0 && testimonials.map((story, index) => <TestimonialCard key={index} article={story} />)}
           </div>
         </div>
       </section>
