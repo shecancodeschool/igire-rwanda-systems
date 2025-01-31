@@ -34,7 +34,7 @@ export const metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Home - Welcome to Igire Rwanda Organization",
+  "name": "Igire Rwanda Organization",
   "url": "https://www.igirerwanda.org",
   "description": "Through education, mentorship, and hands-on training programs, Igire Rwanda helps young women unlock their potential, fostering their confidence and capabilities to lead in their communities.",
   "image": "/scc15.jpg",

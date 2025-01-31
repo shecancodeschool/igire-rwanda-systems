@@ -96,7 +96,7 @@ export default function Navbar() {
           <span className="border-r border-white"></span>
           <span className="transition-colors duration-300">+250 788 293 894</span>
           <span className="border-r border-white"></span>
-          <span className="transition-colors duration-300">education@igirerwanda.org</span>
+          <span className="transition-colors duration-300">info@igirerwanda.org</span>
           <span className="border-r border-white"></span>
           <span className="transition-colors duration-300">
             <a href="https://maps.app.goo.gl/PfZx3y8GxeK4WjDBA" target="_blank" rel="noopener noreferrer" className="transition-colors duration-300">KG 549 St, 36 Kigali</a>
