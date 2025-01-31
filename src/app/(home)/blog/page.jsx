@@ -85,7 +85,7 @@ export default async function page() {
         <div className="max-w-screen-xl px-4 mx-auto w-full">
           <div className="flex justify-between items-center mb-8 md:mb-12">
             <h2 className="text-4xl font-semibold">Latest Stories</h2>
-            <Link href={`/category/all`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
+            <Link href={`/blog/category/all`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
               <span>View All</span>
               <ChevronRight className="inline-block ml-2" />
             </Link>
@@ -101,7 +101,7 @@ export default async function page() {
         <div className="max-w-screen-xl px-4 mx-auto w-full">
           <div className="flex justify-between items-center mb-8 md:mb-12">
             <h2 className="text-4xl font-semibold">Community Innitiatives</h2>
-            <Link href={`/category/community-initiatives`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
+            <Link href={`/blog/category/community-initiatives`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
               <span>View All</span>
               <ChevronRight className="inline-block ml-2" />
             </Link>
@@ -117,7 +117,7 @@ export default async function page() {
         <div className="max-w-screen-xl px-4 mx-auto w-full">
           <div className="flex justify-between items-center mb-8 md:mb-12">
             <h2 className="text-4xl font-semibold">Partner and Learner Testimonials</h2>
-            <Link href={`/category/testimonials`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
+            <Link href={`/blog/category/testimonials`} className="flex items-center justify-between w-fit text-nowrap text-green-700 border-2 border-green-700 px-4 py-2 font-bold hover:bg-green-600 hover:text-white transition-all duration-300 ease-in-out">
               <span>View All</span>
               <ChevronRight className="inline-block ml-2" />
             </Link>

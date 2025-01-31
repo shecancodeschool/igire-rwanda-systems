@@ -1,8 +1,7 @@
 import DefaultBanner from "../components/DefaultBanner";
 import Image from "next/image";
 import Solution from "../components/sections/Solution";
-import Link from "next/link";
-import { getArticlesByCategory } from "../_actions/blogActions";
+import { getJobPosts } from "../_actions/blogActions";
 import BlogCard from "../components/BlogCard";
 
 export const metadata = {
@@ -54,7 +53,7 @@ const jsonLd = {
 export default async function page() {
   var jobs = [];
 
-  const response = await getArticlesByCategory("careers");
+  const response = await getJobPosts();
 
   if (typeof response === 'string') {
     const articles = JSON.parse(response);

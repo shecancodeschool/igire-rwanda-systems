@@ -64,29 +64,55 @@ export const getOnlyPublishedArticlesForBlog = async (includeFeatured, limit = 5
     }
 }
 
+export const getJobPosts = async () => {
+    try {
+        await connectMongo();
+        const articles = await Article.find({ status: "Published", allowedForBlog: true, category: "Careers" }).sort({ createdAt: -1 });
+        return JSON.stringify(articles);
+    } catch (e) {
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+}
+
 export const getArticlesByCategory = async (slug) => {
     try {
         var articles = [];
+        var category = {};
         await connectMongo();
-        if (!slug) {
-            articles = await Article.find({ status: "Published", allowedForBlog: true, category: { $nin: ["archive", "on-boarding"] } }).sort({ createdAt: -1 });
+        if (slug === "") {
+            articles = await Article.find({
+                status: "Published",
+                allowedForBlog: true,
+                category: {
+                    $nin: ["archive", "on-boarding"]
+                }
+            })
+                .sort({ createdAt: -1 });
+            category.name = "All";
+        } else {
+            category = await ArticleCategory.findOne({ slug });
+            if (!category) {
+                return [];
+            }
+            articles = await Article.find({
+                category: category?.name,
+                status: "Published",
+                allowedForBlog: true
+            })
+                .sort({ createdAt: -1 });
+                
+            if (articles.length === 0) {
+                console.log("No articles");
+                return [];
+            }
         }
 
-        const category = await ArticleCategory.findOne({ slug });
-        if (!category) {
-            return [];
-        }
-        articles = await Article.find({ 
-            category: category?.name, 
-            status: "Published", 
-            allowedForBlog: true
-        })
-        .sort({ createdAt: -1 });
-        if (articles.length === 0) {
-            console.log("No articles");
-            return [];
-        }
-        return JSON.stringify(articles);
+        return JSON.stringify({
+            stories: articles,
+            category: category?.name
+        });
     } catch (e) {
         return {
             error: getErrorMessage(e)
@@ -105,7 +131,7 @@ export const getMostRecentTestimonials = async () => {
                 createdAt: -1
             })
             .limit(3);
-            
+
         if (articles.length === 0) {
             console.log("No articles");
             return [];
