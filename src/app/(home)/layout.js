@@ -1,9 +1,10 @@
-import "@/globals.css";
-import { imb } from "@/utils/fonts";
+import "../../globals.css";
+import { imb } from "../../utils/fonts";
 import Footer from "./components/Footer";
 import Navbar from "./components/sections/navBar";
 import ProgressBarProvider from "../ProgressBarProvider";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "./components/ui/sonner";
 
 export const metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </ProgressBarProvider>
         <SpeedInsights />
+        <Toaster />
       </body>
     </html>
   );

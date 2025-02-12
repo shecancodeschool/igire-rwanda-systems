@@ -1,11 +1,10 @@
 import DefaultBanner from "../components/DefaultBanner";
-import React from "react";
-import AboutPageFakes from "@/fakeDatas/AboutPageFakes";
+import AboutPageFakes from "../../../fakeDatas/AboutPageFakes";
 import Team from "../components/sections/Team";
 import ImpactSection from "../components/sections/ImpactSection";
-import HomePageFakes from "@/fakeDatas/HomePageFakes";
+import HomePageFakes from "../../../fakeDatas/HomePageFakes";
 import Solution from "../components/sections/Solution";
-import HomePageData from "@/fakeDatas/HomePageFakes";
+import HomePageData from "../../../fakeDatas/HomePageFakes";
 
 export const metadata = {
   title: "About",

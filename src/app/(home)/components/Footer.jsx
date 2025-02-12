@@ -2,6 +2,7 @@ import { FaFacebookF, FaLinkedinIn, FaYoutube, FaTwitter, FaInstagram, FaInstagr
 import Link from 'next/link';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import SubscribeForm from './forms/SubscribeForm';
 
 const Footer = () => {
     return (
@@ -12,16 +13,13 @@ const Footer = () => {
                         <h3 className='text-3xl font-bold'>Sign up for updates</h3>
                         <p>To receive updates from Igire Rwanda Organization, including our latest news, open positions, projects, and events, please enter your details.</p>
                     </div>
-                    <form className='flex flex-col gap-4'>
-                        <div className='flex gap-4 flex-wrap md:flex-nowrap justify-end'>
-                            <input type="text" placeholder='Email address' className='w-full px-4 py-2 text-black' />
-                            <button className='bg-green-800 font-bold tracking-widest w-full md:w-fit text-white px-4 py-2'>Subscribe</button>
-                        </div>
+                    <div className='flex flex-col gap-4'>
+                        <SubscribeForm />
                         <p>
                             We will treat your information with respect. For more information about our privacy practices please &nbsp;
                             <Link href="/privacy-policy" className='underline'>read our privacy policy.</Link>
                         </p>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div className='bg-black w-full py-10 md:py-16'>

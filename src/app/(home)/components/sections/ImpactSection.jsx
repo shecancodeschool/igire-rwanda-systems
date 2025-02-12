@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import HomePageData from "@/fakeDatas/HomePageFakes";
+import HomePageData from "../../../../fakeDatas/HomePageFakes";
 import Image from "next/image";
 
 function ImpactStat({ number, description }) {

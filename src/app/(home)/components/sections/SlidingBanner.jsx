@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { BannerContent } from "./banner-content";
 import { BannerControls } from "./banner-controls";
-import { BannerData } from "@/fakeDatas/BannerData";
+import { BannerData } from "../../../../fakeDatas/BannerData";
 
 export default function BannerSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);

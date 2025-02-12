@@ -1,5 +1,5 @@
-import { truncateText } from "@/lib/utils";
-import { setBackground } from "@/utils/ImageManager";
+import { truncateText } from "../../../lib/utils";
+import { setBackground } from "../../../lib/utils";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 

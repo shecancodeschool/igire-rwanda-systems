@@ -2,9 +2,9 @@
 
 import slugify from "react-slugify";
 // import { revalidatePath } from "next/cache";
-import connectMongo from "@/utils/database/ConnectToDB";
-import ArticleCategory from "@/utils/models/articleCategory";
-import { getErrorMessage } from "@/utils/errorHandler";
+import connectMongo from "../../../utils/database/ConnectToDB";
+import ArticleCategory from "../../../utils/models/articleCategory";
+import { getErrorMessage } from "../../../utils/errorHandler";
 
 export const createCat = async (formData) => {
     try {

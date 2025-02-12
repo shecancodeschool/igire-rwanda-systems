@@ -94,7 +94,7 @@ export default function Navbar() {
             </a>
           ))}
           <span className="border-r border-white"></span>
-          <span className="transition-colors duration-300">+250 788 293 894</span>
+          <span className="transition-colors duration-300">+250 788 473 533</span>
           <span className="border-r border-white"></span>
           <span className="transition-colors duration-300">info@igirerwanda.org</span>
           <span className="border-r border-white"></span>

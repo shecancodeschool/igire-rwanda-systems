@@ -2,7 +2,7 @@ import Slideshow from '../Slideshow';
 import Slideshow2 from '../Slideshow2';
 import Link from 'next/link';
 import Image from 'next/image';
-import { WhatWeDoData } from '@/fakeDatas/whatweDoData';
+import { WhatWeDoData } from '../../../../fakeDatas/whatweDoData';
 const slideshowComponents = {
   Slideshow,
   Slideshow2,

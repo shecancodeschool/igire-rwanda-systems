@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import DefaultBanner from "../components/DefaultBanner";
+import ContactForm from "../components/forms/ContactForm";
 
 export const metadata = {
   title: "Contact Us",
@@ -74,11 +75,7 @@ export default function page() {
                 </tr>
               </table>
             </div>
-            <form className="flex flex-col items-center justify-center w-full bg-orange-200 p-8 md:p-16">
-              <input type="text" className="w-full border border-black px-3 py-2 mb-4" placeholder="Full name" />
-              <input type="text" className="w-full border border-black px-3 py-2 mb-4" placeholder="Email" />
-              <textarea className="w-full border border-black px-3 py-2 mb-4" rows={'6'} placeholder="Message"></textarea>
-            </form>
+            <ContactForm />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center w-full border border-black">

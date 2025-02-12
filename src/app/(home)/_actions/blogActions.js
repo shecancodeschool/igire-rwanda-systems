@@ -1,9 +1,9 @@
 "use server"
 
-import Article from "@/utils/models/article.model";
-import connectMongo from "@/utils/database/ConnectToDB";
-import { getErrorMessage } from "@/utils/errorHandler";
-import ArticleCategory from "@/utils/models/articleCategory";
+import Article from "../../../utils/models/article.model";
+import connectMongo from "../../../utils/database/ConnectToDB";
+import { getErrorMessage } from "../../../utils/errorHandler";
+import ArticleCategory from "../../../utils/models/articleCategory";
 
 export const getArticles = async () => {
     try {

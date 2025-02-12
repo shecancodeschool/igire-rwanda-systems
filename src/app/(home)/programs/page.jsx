@@ -1,6 +1,6 @@
 import DefaultBanner from "../components/DefaultBanner";
 import React from "react";
-import ProgramsPageData from "@/fakeDatas/ProgramPageFakes";
+import ProgramsPageData from "../../../fakeDatas/ProgramPageFakes";
 import ProgramsDetails from "../components/sections/ProgramsDetails";
 
 export const metadata = {

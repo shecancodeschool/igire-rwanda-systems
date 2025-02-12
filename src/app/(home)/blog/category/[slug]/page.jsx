@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { getArticlesByCategory } from "@/app/(home)/_actions/blogActions";
-import DefaultBanner from "@/app/(home)/components/DefaultBanner";
-import BlogCard from "@/app/(home)/components/BlogCard";
+import { getArticlesByCategory } from "../../../../(home)/_actions/blogActions";
+import DefaultBanner from "../../../../(home)/components/DefaultBanner";
+import BlogCard from "../../../../(home)/components/BlogCard";
 
 export const metadata = {
   title: "Blog - Igire Rwanda Organization",

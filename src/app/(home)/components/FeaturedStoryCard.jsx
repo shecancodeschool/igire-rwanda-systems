@@ -1,9 +1,9 @@
 import React from 'react'
 import ButtonWithArrow from './ButtonWithArrow'
-import { setBackground } from '@/utils/ImageManager'
+import { setBackground } from '../../../utils/ImageManager'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa'
-import { truncateText } from '@/lib/utils'
+import { truncateText } from '../../../lib/utils'
 
 export default function FeaturedStoryCard({ article }) {
     return (
