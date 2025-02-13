@@ -35,18 +35,18 @@ const AboutPageFakes = {
         founders: [
           {
             name: "Mbanda Innocent",
-            position: "CEO",
+            position: "Co-Founder & CEO",
             image: "/innocent.jpeg",
           },
           {
             name: "Iradukunda J. Jacques",
-            position: "Co-Founder",
+            position: "Co-Founder & COO",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731270421/jacques.jpg",
           },
           {
-            name: "Mugwaneza Joseph",
-            position: "HR",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266274/joe.jpg",
+            name: "Lidia Solomon",
+            position: "Program Manager",
+            image: "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2Flidia-solomon.jpeg?alt=media&token=6b52bc67-5338-42a0-ae51-c82aa0c5f45f",
           },
           {
             name: "Tuyisenge Josiane",
@@ -55,23 +55,33 @@ const AboutPageFakes = {
           },
           {
             name: "Uwase Liliane",
-            position: "Operations Manager & Assistant HR",
+            position: "HR & Operations Manager",
             image: "/lili.jpg",
           },
           {
+            name: "Esther Beza Byizigiro",
+            position: "Admission & Student Success and M&E Coordinator",
+            image: "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2Festher-beza.jpeg?alt=media&token=13c2c435-3ffb-4174-b764-eeec6a2a3df6",
+          },
+          {
+            name: "Phiona Uwera",
+            position: "Communication Manager",
+            image: "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2Fphiona.JPG?alt=media&token=d49e4979-6493-4ba5-9f1a-919016973621",
+          },
+          {
+            name: "Yves Manzi",
+            position: "Grant Writer",
+            image: "",
+          },
+          {
             name: "Hirwa Jean Eric",
-            position: "Head of Academics & Trainer",
+            position: "Head of Academics & Senior Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266268/hirwa.jpg",
           },
           {
             name: "Impuhwe Stella",
-            position: "Software Developer & Trainer",
+            position: "Junior Trainer",
             image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266300/stella.jpg",
-          },
-          {
-            name: "Ntirushwa Brice Kelly",
-            position: "Software Developer & Trainer",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266292/kelly.jpg",
           },
         ],
       },

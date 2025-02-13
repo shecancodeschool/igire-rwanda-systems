@@ -29,7 +29,7 @@ const TeamMemberCard = ({ member }) => {
     <div className="flex flex-col items-center">
       <div className="w-40 h-40 rounded-full overflow-hidden mb-3">
         <Image
-          src={image}
+          src={image || "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2Fuser-image-placeholder.png?alt=media&token=4092e69c-0a6b-4c42-94b0-611f035afaf3"}
           alt={name}
           width={160}
           height={160}

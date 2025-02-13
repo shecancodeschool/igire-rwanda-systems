@@ -86,9 +86,9 @@ const MissionVisionValues = () => {
               <h2 className="font-extrabold text-orange-500 text-3xl mb-5">Our Vision</h2>
               <p className="text-base md:text-lg">
                 Our vision is to create a future where all Rwandan youth,
-                especially women, are empowered with digital skills ad an
-                opportunities driving sustainable growth & innovation in their
-                communities & beyond
+                especially women are empowered with digital skills and
+                opportunities driving sustainable growth and innovation in their
+                communities and beyond.
               </p>
             </div>
           </div>
