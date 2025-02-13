@@ -71,7 +71,7 @@ const AboutPageFakes = {
           {
             name: "Yves Manzi",
             position: "Grant Writer",
-            image: "",
+            image: "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2FYves-manzi.JPG?alt=media&token=53587a2c-5c89-408c-91f9-e6016b6ddd02",
           },
           {
             name: "Hirwa Jean Eric",
