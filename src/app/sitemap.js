@@ -1,39 +1,39 @@
 export default function sitemap() {
     return [
         { 
-            url: '/', 
+            url: 'https://www.igirerwanda.org', 
             lastModified: new Date().toISOString(), 
-            changefreq: 'monthly', 
-            priority: 1.0
+            changeFrequency: 'monthly', 
+            priority: 1
         },
         {
-            url: '/blog',
+            url: 'https://www.igirerwanda.org/blog',
             lastModified: new Date().toISOString(),
-            changefreq: 'daily',
+            changeFrequency: 'daily',
             priority: 0.9
         },
         {
-            url: '/about', 
+            url: 'https://www.igirerwanda.org/about', 
             lastModified: new Date().toISOString(), 
-            changefreq: 'monthly', 
+            changeFrequency: 'monthly', 
             priority: 0.9
         },
         {
-            url: '/projects',
+            url: 'https://www.igirerwanda.org/projects',
             lastModified: new Date().toISOString(),
-            changefreq: 'monthly',
+            changeFrequency: 'monthly',
             priority: 0.8
         },
         {
-            url: '/careers',
+            url: 'https://www.igirerwanda.org/careers',
             lastModified: new Date().toISOString(),
-            changefreq: 'weekly',
+            changeFrequency: 'weekly',
             priority: 0.8
         },
         {
-            url: '/contact',
+            url: 'https://www.igirerwanda.org/contact',
             lastModified: new Date().toISOString(),
-            changefreq: 'daily',
+            changeFrequency: 'daily',
             priority: 0.8
         }
     ]
