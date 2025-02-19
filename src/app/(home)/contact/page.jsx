@@ -67,11 +67,11 @@ export default function page() {
                 </tr>
                 <tr className="mb-4">
                   <td className="font-semibold text-orange-400"><Mail /></td>
-                  <td>&nbsp;&nbsp;education@igirerwanda.org</td>
+                  <td>&nbsp;&nbsp;info@igirerwanda.org</td>
                 </tr>
                 <tr className="mb-4">
                   <td className="font-semibold text-orange-400"><Phone /></td>
-                  <td>&nbsp;&nbsp;+250 788 293 894</td>
+                  <td>&nbsp;&nbsp;+250 788 473 533</td>
                 </tr>
               </table>
             </div>
