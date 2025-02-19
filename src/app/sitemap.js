@@ -3,13 +3,19 @@ export default function sitemap() {
         { 
             url: '/', 
             lastModified: new Date().toISOString(), 
-            changefreq: 'yearly', 
+            changefreq: 'monthly', 
             priority: 1.0
+        },
+        {
+            url: '/blog',
+            lastModified: new Date().toISOString(),
+            changefreq: 'daily',
+            priority: 0.9
         },
         {
             url: '/about', 
             lastModified: new Date().toISOString(), 
-            changefreq: 'yearly', 
+            changefreq: 'monthly', 
             priority: 0.9
         },
         {
@@ -19,16 +25,16 @@ export default function sitemap() {
             priority: 0.8
         },
         {
-            url: '/contact',
+            url: '/careers',
             lastModified: new Date().toISOString(),
-            changefreq: 'yearly',
+            changefreq: 'weekly',
             priority: 0.8
         },
         {
-            url: '/blog',
+            url: '/contact',
             lastModified: new Date().toISOString(),
             changefreq: 'daily',
-            priority: 0.9
+            priority: 0.8
         }
     ]
 }
