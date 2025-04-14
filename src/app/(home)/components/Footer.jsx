@@ -25,7 +25,7 @@ const Footer = () => {
             <div className='bg-black w-full py-10 md:py-16'>
                 <div className='grid grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-xl w-full px-4 lg:px-0 gap-5 md:gap-20'>
                     <div className='flex flex-col gap-4 text-lg font-bold'>
-                        <p>Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills ad an opportunities driving sustainable growth & innovation in their communities & beyond</p>
+                        <p>Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills and opportunities driving sustainable growth & innovation in their communities and beyond</p>
                     </div>
                     <ul className='grid grid-cols-2 md:grid-cols-3 gap-2 items-center'>
                         <li><Link href="/" className='hover:underline'>Home</Link></li>

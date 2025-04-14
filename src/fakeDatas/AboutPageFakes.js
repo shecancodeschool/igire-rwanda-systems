@@ -41,7 +41,7 @@ const AboutPageFakes = {
           {
             name: "Iradukunda J. Jacques",
             position: "Co-Founder & COO",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731270421/jacques.jpg",
+            image: "/jean-jacques.jpeg",
           },
           {
             name: "Lidia Solomon",
@@ -51,7 +51,7 @@ const AboutPageFakes = {
           {
             name: "Tuyisenge Josiane",
             position: "Finance Manager",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266280/josiane.jpg",
+            image: "/josiane.jpeg",
           },
           {
             name: "Uwase Liliane",
@@ -70,18 +70,23 @@ const AboutPageFakes = {
           },
           {
             name: "Yves Manzi",
-            position: "Grant Writer",
+            position: "Grant Writer & Partnership Support",
             image: "https://firebasestorage.googleapis.com/v0/b/shecancode-website.appspot.com/o/images%2FYves-manzi.JPG?alt=media&token=53587a2c-5c89-408c-91f9-e6016b6ddd02",
           },
           {
             name: "Hirwa Jean Eric",
             position: "Head of Academics & Senior Trainer",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266268/hirwa.jpg",
+            image: "/jean-eric.jpeg",
           },
           {
-            name: "Impuhwe Stella",
+            name: "Axelle Ineza",
+            position: "Senior Trainer",
+            image: "/axelle.jpeg",
+          },
+          {
+            name: "Cates Nsengiyumva",
             position: "Junior Trainer",
-            image: "https://res.cloudinary.com/drfzbtbzi/image/upload/v1731266300/stella.jpg",
+            image: "/cates.jpeg",
           },
         ],
       },
