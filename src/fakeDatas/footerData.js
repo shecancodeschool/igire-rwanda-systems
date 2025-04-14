@@ -12,7 +12,7 @@ export const companyLinks = [
     { label: "Contact us", url: "/contact" },
 ];
 
-export const visionText = `Our vision is to create a future where all Rwandan youth, especially women, are empored with digital skills 7 opportunities, driving sustainable growth and innovationin their community and beyond.`;
+export const visionText = `Our vision is to create a future where all Rwandan youth, especially women, are empored with digital skills and opportunities, driving sustainable growth and innovationin their community and beyond.`;
 
 export const tweets = [
     "Tweet 1: Example tweet content here...",
