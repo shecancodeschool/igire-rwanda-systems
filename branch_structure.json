@@ -1,0 +1,21 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "fix/change-logos",
+    "hirwajeaneric-patch-1",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "fix/change-logos": "main",
+    "hirwajeaneric-patch-1": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "fix/change-logos",
+    "hirwajeaneric-patch-1",
+    "origin"
+  ]
+}
